@@ -9,12 +9,12 @@
 import UIKit
 import IGListKit
 
-protocol SettingSeparatorSectionDelegate: class {
+public protocol SettingSeparatorSectionDelegate: class {
     
 }
 
 extension Setting {
-    class SeparatorSection: Setting.BaseSection, SettingSeparatorCellDelegate {
+    internal class SeparatorSection: Setting.BaseSection, SettingSeparatorCellDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -22,7 +22,7 @@ extension Setting {
             return model as! Setting.Separator
         }
         
-        public weak var delegate: SettingSeparatorSectionDelegate?
+        internal weak var delegate: SettingSeparatorSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -32,23 +32,19 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override func cellForItem(at index: Int) -> UICollectionViewCell {
+        override internal func cellForItem(at index: Int) -> UICollectionViewCell {
             if let cell = collectionContext!.dequeueReusableCell(of: Setting.SeparatorCell.self, for: self, at: index) as? Setting.SeparatorCell {
                 
                 cell.configure(withListModel: setting)
                 cell.delegate = self
                 cell.itemDelegate = self
                 
-                
-                
-                
-                
                 return cell
             }
             fatalError()
         }
         
-        override func didUpdate(to object: Any) {
+        override internal func didUpdate(to object: Any) {
             super.didUpdate(to: object)
             delegate = (setting.delegateOverride ?? viewController) as? SettingSeparatorSectionDelegate
         }

@@ -13,7 +13,6 @@
 		95F70A2D21615A3C0034C5AD /* HiddenViewBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A2A21615A3B0034C5AD /* HiddenViewBaseClass.swift */; };
 		95F70A2E21615A3C0034C5AD /* SettingsBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A2B21615A3B0034C5AD /* SettingsBaseClass.swift */; };
 		95F70A2F21615A3C0034C5AD /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A2C21615A3C0034C5AD /* SettingsController.swift */; };
-		95F70A8421615B840034C5AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A8321615B840034C5AD /* BaseViewController.swift */; };
 		95F70AC2216200110034C5AD /* SettingTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3221615B4A0034C5AD /* SettingTextViewCell.swift */; };
 		95F70AC3216200110034C5AD /* SettingTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3321615B4A0034C5AD /* SettingTextViewModel.swift */; };
 		95F70AC4216200110034C5AD /* SettingTextViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3421615B4A0034C5AD /* SettingTextViewSection.swift */; };
@@ -59,6 +58,7 @@
 		95F70B8421622E0B0034C5AD /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70B8321622E0B0034C5AD /* UIColor+Extensions.swift */; };
 		95F70B86216232460034C5AD /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70B85216232460034C5AD /* PaddingTextField.swift */; };
 		95F70B88216233620034C5AD /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70B87216233620034C5AD /* UITextField+Extensions.swift */; };
+		95F70B8E21626BCA0034C5AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95F70B8D21626BCA0034C5AD /* Images.xcassets */; };
 		A9820D3BC566E9CF0C040304 /* Pods_EasySettingsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC26CE89B0BAC397F599EABA /* Pods_EasySettingsTests.framework */; };
 		E3B957A0E49623BAA6D432AC /* Pods_EasySettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234F4E776D6C019A8D55731F /* Pods_EasySettings.framework */; };
 /* End PBXBuildFile section */
@@ -127,11 +127,11 @@
 		95F70A7C21615B4A0034C5AD /* SettingBaseGroupSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBaseGroupSection.swift; sourceTree = "<group>"; };
 		95F70A7D21615B4A0034C5AD /* SettingBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBaseModel.swift; sourceTree = "<group>"; };
 		95F70A7E21615B4A0034C5AD /* SettingBaseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBaseSection.swift; sourceTree = "<group>"; };
-		95F70A8321615B840034C5AD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		95F70B2A2162167E0034C5AD /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		95F70B8321622E0B0034C5AD /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		95F70B85216232460034C5AD /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		95F70B87216233620034C5AD /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		95F70B8D21626BCA0034C5AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9D4FAFCD07319BA77D8D6C00 /* Pods-EasySettings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasySettings.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasySettings/Pods-EasySettings.release.xcconfig"; sourceTree = "<group>"; };
 		BD868C2FC45C8F7998BEA00F /* Pods-EasySettingsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasySettingsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasySettingsTests/Pods-EasySettingsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC26CE89B0BAC397F599EABA /* Pods_EasySettingsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasySettingsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +181,7 @@
 		95F70A12216159D80034C5AD /* EasySettings */ = {
 			isa = PBXGroup;
 			children = (
+				95F70B8C21626BBB0034C5AD /* Resources */,
 				95F70B8221622DF60034C5AD /* Aux */,
 				95F70A3021615B4A0034C5AD /* Settings */,
 				95F70A2A21615A3B0034C5AD /* HiddenViewBaseClass.swift */,
@@ -188,7 +189,6 @@
 				95F70A2C21615A3C0034C5AD /* SettingsController.swift */,
 				95F70A13216159D80034C5AD /* EasySettings.h */,
 				95F70A14216159D80034C5AD /* Info.plist */,
-				95F70A8321615B840034C5AD /* BaseViewController.swift */,
 				95F70B2A2162167E0034C5AD /* SettingHeaderView.swift */,
 			);
 			path = EasySettings;
@@ -381,6 +381,14 @@
 			path = Aux;
 			sourceTree = "<group>";
 		};
+		95F70B8C21626BBB0034C5AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				95F70B8D21626BCA0034C5AD /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A330467ED81D6F9C283E9926 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +503,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F70B8E21626BCA0034C5AD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,7 +611,6 @@
 				95F70ACF216200110034C5AD /* SettingTextFieldGroupModel.swift in Sources */,
 				95F70AD4216200110034C5AD /* SettingSeparatorModel.swift in Sources */,
 				95F70AC3216200110034C5AD /* SettingTextViewModel.swift in Sources */,
-				95F70A8421615B840034C5AD /* BaseViewController.swift in Sources */,
 				95F70B8421622E0B0034C5AD /* UIColor+Extensions.swift in Sources */,
 				95F70ACD216200110034C5AD /* SettingDuoColorFieldsSection.swift in Sources */,
 				95F70AC6216200110034C5AD /* SettingSectionHeaderCell.swift in Sources */,

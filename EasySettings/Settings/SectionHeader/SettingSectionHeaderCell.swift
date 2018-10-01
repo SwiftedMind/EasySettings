@@ -10,23 +10,23 @@ import UIKit
 import IGListKit
 import SwipeCell
 
-protocol SettingSectionHeaderCellDelegate: class {
+internal protocol SettingSectionHeaderCellDelegate: class {
     
 }
 
 extension Setting {
-    class SectionHeaderCell: SwipeCell {
+    internal class SectionHeaderCell: SwipeCell {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        public weak var delegate: SettingSectionHeaderCellDelegate?
+        internal weak var delegate: SettingSectionHeaderCellDelegate?
         private var listModel: Setting.SectionHeaderModel?
         
-        override var swipeCellItems: [SwipeCell.Item] {
+        override open var swipeCellItems: [SwipeCell.Item] {
             return []
         }
         
-        lazy var label: UILabel = {
+        internal lazy var label: UILabel = {
             let label = UILabel()
             label.font = .boldSystemFont(ofSize: 24)
             label.textColor = UIColor(hex: 0xeeeeee)
@@ -38,7 +38,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(frame: CGRect) {
+        override internal init(frame: CGRect) {
             super.init(frame: frame)
             holderView.backgroundColor = .clear
             swipeEnabled = false
@@ -51,7 +51,7 @@ extension Setting {
             
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required internal init?(coder aDecoder: NSCoder) {
             fatalError()
         }
         // ====================
@@ -64,7 +64,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        public func configure(withListModel listModel: Setting.SectionHeaderModel) {
+        internal func configure(withListModel listModel: Setting.SectionHeaderModel) {
             self.listModel = listModel
             label.text = listModel.headerTitle
         }

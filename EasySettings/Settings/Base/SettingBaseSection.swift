@@ -11,18 +11,15 @@ import CoreData
 import IGListKit
 import SwipeCell
 
-protocol SettingSwipeCellItemsSupport: class {
+public protocol SettingSwipeCellItemsSupport: class {
     func didTap(onItem item: SwipeCell.Item, ofSetting setting: Setting.BaseModel)
 }
 
 extension Setting {
-    class BaseSection: ListSectionController, SwipeCellItemDelegate, ListSupplementaryViewSource {
+    open class BaseSection: ListSectionController, SwipeCellItemDelegate, ListSupplementaryViewSource {
         
         // MARK: - Properties
-        // ========== PROPERTIES ==========
-        public var persistentContainer: NSPersistentContainer!
-        public var managedObjectContext: NSManagedObjectContext!
-        
+        // ========== PROPERTIES ==========        
         public weak var itemDelegate: SettingSwipeCellItemsSupport?
         public var model: Setting.BaseModel!
         // ====================
@@ -38,12 +35,12 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override func sizeForItem(at index: Int) -> CGSize {
+        override open func sizeForItem(at index: Int) -> CGSize {
             let width = collectionContext!.containerSize.width
             return CGSize(width: width, height: model.height)
         }
         
-        override func didUpdate(to object: Any) {
+        override open func didUpdate(to object: Any) {
             guard let object = object as? Setting.BaseModel else { return }
             self.model = object
             inset = object.inset
@@ -56,11 +53,11 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        func didTapOnItem(_ item: SwipeCell.Item) {
+        public func didTapOnItem(_ item: SwipeCell.Item) {
             itemDelegate?.didTap(onItem: item, ofSetting: model)
         }
         
-        func supportedElementKinds() -> [String] {
+        public func supportedElementKinds() -> [String] {
             if model.headerTitle == "" {
                 return []
             }
@@ -68,7 +65,7 @@ extension Setting {
             return [UICollectionView.elementKindSectionHeader]
         }
         
-        func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
+        public func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
             let view = collectionContext?.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: self, class: Setting.HeaderView.self, at: index) as! Setting.HeaderView
             
             view.setTitle(to: model.headerTitle)
@@ -76,7 +73,7 @@ extension Setting {
             return view
         }
         
-        func sizeForSupplementaryView(ofKind elementKind: String, at index: Int) -> CGSize {
+        public func sizeForSupplementaryView(ofKind elementKind: String, at index: Int) -> CGSize {
             return CGSize(width: collectionContext!.containerSize.width, height: model.headerHeight)
         }
         // ====================

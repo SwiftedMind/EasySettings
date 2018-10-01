@@ -9,13 +9,13 @@
 import UIKit
 import IGListKit
 
-protocol SettingTextFieldGroupConfiguration {
+public protocol SettingTextFieldGroupConfiguration {
     func configured(_ setting: Setting.TextFieldGroup) -> Setting.TextFieldGroup
 }
 
 extension Setting {
-    typealias TextFieldGroup = TextFieldGroupModel
-    class TextFieldGroupModel: Setting.BaseModel {
+    public typealias TextFieldGroup = TextFieldGroupModel
+    public class TextFieldGroupModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -27,7 +27,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             
             // height of each item
@@ -37,7 +37,7 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override open var sectionController: ListSectionController {
             let section = Setting.TextFieldGroupSection()
             
             // In binding section controllers, there is no 'didUpdate(to:)' method. Inset needs to be set here.
@@ -46,7 +46,7 @@ extension Setting {
             return section
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.TextFieldGroupModel, super.isEqual(toDiffableObject: object) else { return false }
             return true
         }

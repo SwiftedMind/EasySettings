@@ -9,12 +9,12 @@
 import UIKit
 import SwipeCell
 
-protocol SettingTextFieldSectionDelegate: class {
+public protocol SettingTextFieldSectionDelegate: class {
     func settingTextField(_ setting: Setting.TextField, didChangeToNewText text: String)
 }
 
 extension Setting {
-    class TextFieldSection: Setting.BaseSection, SettingTextFieldCellDelegate {
+    internal class TextFieldSection: Setting.BaseSection, SettingTextFieldCellDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -22,7 +22,7 @@ extension Setting {
             return model as! Setting.TextField
         }
         
-        public weak var delegate: SettingTextFieldSectionDelegate?
+        internal weak var delegate: SettingTextFieldSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -32,12 +32,12 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override func sizeForItem(at  index: Int) -> CGSize {
+        override internal func sizeForItem(at  index: Int) -> CGSize {
             let width = collectionContext!.containerSize.width
             return CGSize(width: width, height: model.height)
         }
         
-        override func cellForItem(at index: Int) -> UICollectionViewCell {
+        override internal func cellForItem(at index: Int) -> UICollectionViewCell {
             if let cell = collectionContext!.dequeueReusableCell(of: Setting.TextFieldCell.self, for: self, at: index) as? Setting.TextFieldCell {
                 cell.configure(withListModel: setting)
                 cell.delegate = self
@@ -47,7 +47,7 @@ extension Setting {
             fatalError()
         }
         
-        override func didUpdate(to object: Any) {
+        override internal func didUpdate(to object: Any) {
             super.didUpdate(to: object)
             delegate = (setting.delegateOverride ?? viewController) as? SettingTextFieldSectionDelegate
             //actionDelegate = viewController as? SettingSwipeCellActionsSupport
@@ -57,11 +57,11 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        func settingTextField(_ textField: UITextField, didChangeToNewText text: String, inCell cell: Setting.TextFieldCell) {
+        internal func settingTextField(_ textField: UITextField, didChangeToNewText text: String, inCell cell: Setting.TextFieldCell) {
             delegate?.settingTextField(setting, didChangeToNewText: text)
         }
         
-        func settingTextFieldDidBecomeFirstResponder(inCell cell: Setting.TextFieldCell) {
+        internal func settingTextFieldDidBecomeFirstResponder(inCell cell: Setting.TextFieldCell) {
             
         }
         // ====================

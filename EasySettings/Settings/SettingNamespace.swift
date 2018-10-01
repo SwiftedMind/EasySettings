@@ -25,3 +25,5 @@ public struct Setting {
     public static var defaultDangerColor: UIColor = UIColor.red
     
 }
+
+public struct SettingsPage {}

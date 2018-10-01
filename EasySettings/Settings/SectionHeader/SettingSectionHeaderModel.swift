@@ -9,13 +9,13 @@
 import UIKit
 import IGListKit
 
-protocol SettingSectionHeaderConfiguration {
+public protocol SettingSectionHeaderConfiguration {
     func configured(_ setting: Setting.SectionHeader) -> Setting.SectionHeader
 }
 
 extension Setting {
-    typealias SectionHeader = Setting.SectionHeaderModel
-    class SectionHeaderModel: Setting.BaseModel {
+    public typealias SectionHeader = Setting.SectionHeaderModel
+    public class SectionHeaderModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -23,7 +23,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 40
             inset.top += 8
@@ -32,11 +32,11 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override open var sectionController: ListSectionController {
             return Setting.SectionHeaderSection()
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.SectionHeaderModel, super.isEqual(toDiffableObject: object) else { return false }
             return true
         }

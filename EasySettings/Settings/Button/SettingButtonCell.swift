@@ -10,15 +10,15 @@ import UIKit
 import IGListKit
 import SwipeCell
 
-protocol SettingButtonCellDelegate: class {
+internal protocol SettingButtonCellDelegate: class {
 }
 
 extension Setting {
-    class ButtonCell: SwipeCell, ListBindable {
+    internal class ButtonCell: SwipeCell, ListBindable {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        override var isHighlighted: Bool {
+        override public var isHighlighted: Bool {
             didSet {
                 if isHighlighted {
                     UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: [.allowUserInteraction], animations: {
@@ -33,21 +33,21 @@ extension Setting {
         }
         
         /// For when used in a binding section.
-        public var groupIndex: Int = 0
+        internal var groupIndex: Int = 0
         
-        public weak var delegate: SettingButtonCellDelegate?
+        internal weak var delegate: SettingButtonCellDelegate?
         private var listModel: Setting.ButtonModel?
         
         // swipe action buttons
-        override var swipeCellItems: [SwipeCell.Item] {
-            return listModel?.swipeActions ?? []
+        override internal var swipeCellItems: [SwipeCell.Item] {
+            return listModel?.swipeItems ?? []
         }
         
-        override var swipeWidth: CGFloat {
+        override internal var swipeWidth: CGFloat {
             return listModel?.swipeWidth ?? 120
         }
         
-        lazy var button: UIButton = {
+        private lazy var button: UIButton = {
             let button = UIButton()
             
             button.isUserInteractionEnabled = false
@@ -74,7 +74,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(frame: CGRect) {
+        override internal init(frame: CGRect) {
             super.init(frame: frame)
             
             button.snp.makeConstraints { (make) in
@@ -110,7 +110,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        public func configure(withListModel listModel: Setting.ButtonModel) {
+        internal func configure(withListModel listModel: Setting.ButtonModel) {
             self.listModel = listModel
             swipeEnabled = swipeCellItems.count > 0
             
@@ -123,7 +123,7 @@ extension Setting {
             bottomLineView.backgroundColor = listModel.backgroundColor.lighten(by: 0.05)
         }
         
-        func bindViewModel(_ viewModel: Any) {
+        internal func bindViewModel(_ viewModel: Any) {
             guard let viewModel = viewModel as? Setting.ButtonModel else { return }
             configure(withListModel: viewModel)
             

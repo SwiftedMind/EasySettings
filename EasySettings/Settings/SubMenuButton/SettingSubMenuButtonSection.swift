@@ -9,12 +9,12 @@
 import UIKit
 import IGListKit
 
-protocol SettingSubMenuButtonSectionDelegate: class {
+public protocol SettingSubMenuButtonSectionDelegate: class {
     func settingSubMenuButton(didTapSubMenuButton setting: Setting.SubMenuButtonModel)
 }
 
 extension Setting {
-    class SubMenuButtonSection: Setting.BaseSection, SettingSubMenuButtonCellDelegate {
+    internal class SubMenuButtonSection: Setting.BaseSection, SettingSubMenuButtonCellDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -22,8 +22,7 @@ extension Setting {
             return model as! Setting.SubMenuButton
         }
         
-        public weak var delegate: SettingSubMenuButtonSectionDelegate?
-        
+        internal weak var delegate: SettingSubMenuButtonSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -33,7 +32,7 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override func cellForItem(at index: Int) -> UICollectionViewCell {
+        override internal func cellForItem(at index: Int) -> UICollectionViewCell {
             if let cell = collectionContext!.dequeueReusableCell(of: Setting.SubMenuButtonCell.self, for: self, at: index) as? Setting.SubMenuButtonCell {
                 
                 cell.configure(withListModel: setting)
@@ -45,7 +44,7 @@ extension Setting {
             fatalError()
         }
         
-        override func didUpdate(to object: Any) {
+        override internal func didUpdate(to object: Any) {
             super.didUpdate(to: object)
             delegate = (setting.delegateOverride ?? viewController) as? SettingSubMenuButtonSectionDelegate
         }
@@ -56,11 +55,11 @@ extension Setting {
         // MARK: - Functions
         // ========== FUNCTIONS ==========
         
-        override func didSelectItem(at index: Int) {
+        override internal func didSelectItem(at index: Int) {
             delegate?.settingSubMenuButton(didTapSubMenuButton: setting)
         }
         
-        override func didDeselectItem(at index: Int) {
+        override internal func didDeselectItem(at index: Int) {
             
         }
         

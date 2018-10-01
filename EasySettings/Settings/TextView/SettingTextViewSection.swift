@@ -9,12 +9,12 @@
 import UIKit
 import IGListKit
 
-protocol SettingTextViewSectionDelegate: class {
+public protocol SettingTextViewSectionDelegate: class {
     func settingTextView(_ setting: Setting.TextView, didChangeToNewText text: String)
 }
 
 extension Setting {
-    class TextViewSection: Setting.BaseSection, SettingTextViewCellDelegate {
+    internal class TextViewSection: Setting.BaseSection, SettingTextViewCellDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -22,7 +22,7 @@ extension Setting {
             return model as! Setting.TextView
         }
         
-        public weak var delegate: SettingTextViewSectionDelegate?
+        internal weak var delegate: SettingTextViewSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -32,7 +32,7 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override func cellForItem(at index: Int) -> UICollectionViewCell {
+        override internal func cellForItem(at index: Int) -> UICollectionViewCell {
             if let cell = collectionContext!.dequeueReusableCell(of: Setting.TextViewCell.self, for: self, at: index) as? Setting.TextViewCell {
                 
                 cell.configure(withListModel: setting)
@@ -44,7 +44,7 @@ extension Setting {
             fatalError()
         }
         
-        override func didUpdate(to object: Any) {
+        override internal func didUpdate(to object: Any) {
             super.didUpdate(to: object)
             delegate = viewController as? SettingTextViewSectionDelegate
         }
@@ -54,7 +54,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        func settingTextview(_ textView: UITextView, didChangeToNewText text: String) {
+        internal func settingTextview(_ textView: UITextView, didChangeToNewText text: String) {
             delegate?.settingTextView(setting, didChangeToNewText: text)
         }
         // ====================

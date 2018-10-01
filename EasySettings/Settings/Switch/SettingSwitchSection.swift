@@ -9,12 +9,12 @@
 import UIKit
 import IGListKit
 
-protocol SettingSwitchSectionDelegate: class {
+public protocol SettingSwitchSectionDelegate: class {
     func settingSwitch(_ setting: Setting.Switch, changedTo isOn: Bool)
 }
 
 extension Setting {
-    class SwitchSection: Setting.BaseSection, SettingSwitchCellDelegate {
+    internal class SwitchSection: Setting.BaseSection, SettingSwitchCellDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -22,7 +22,7 @@ extension Setting {
             return model as! Setting.Switch
         }
         
-        public weak var delegate: SettingSwitchSectionDelegate?
+        internal weak var delegate: SettingSwitchSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -32,7 +32,7 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override func cellForItem(at index: Int) -> UICollectionViewCell {
+        override internal func cellForItem(at index: Int) -> UICollectionViewCell {
             if let cell = collectionContext!.dequeueReusableCell(of: Setting.SwitchCell.self, for: self, at: index) as? Setting.SwitchCell {
                 
                 cell.configure(withListModel: setting)
@@ -44,7 +44,7 @@ extension Setting {
             fatalError()
         }
         
-        override func didUpdate(to object: Any) {
+        override internal func didUpdate(to object: Any) {
             super.didUpdate(to: object)
             delegate = (setting.delegateOverride ?? viewController) as? SettingSwitchSectionDelegate
         }
@@ -54,7 +54,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        func switchFlipped(toNewState isOn: Bool) {
+        internal func switchFlipped(toNewState isOn: Bool) {
             delegate?.settingSwitch(setting, changedTo: isOn)
         }
         // ====================

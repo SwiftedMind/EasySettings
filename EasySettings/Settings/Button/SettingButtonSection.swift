@@ -9,12 +9,12 @@
 import UIKit
 import IGListKit
 
-protocol SettingButtonSectionDelegate: class {
+public protocol SettingButtonSectionDelegate: class {
     func settingButton(didTapButton setting: Setting.Button)
 }
 
 extension Setting {
-    class ButtonSection: Setting.BaseSection, SettingButtonCellDelegate {
+    internal class ButtonSection: Setting.BaseSection, SettingButtonCellDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -22,7 +22,7 @@ extension Setting {
             return model as! Setting.Button
         }
         
-        public weak var delegate: SettingButtonSectionDelegate?
+        private weak var delegate: SettingButtonSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -44,7 +44,7 @@ extension Setting {
             fatalError()
         }
         
-        override func didUpdate(to object: Any) {
+        override internal func didUpdate(to object: Any) {
             super.didUpdate(to: object)
             delegate = (setting.delegateOverride ?? viewController) as? SettingButtonSectionDelegate
         }
@@ -54,11 +54,11 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        override func didSelectItem(at index: Int) {
+        override internal func didSelectItem(at index: Int) {
             delegate?.settingButton(didTapButton: setting)
         }
         
-        override func didDeselectItem(at index: Int) {
+        override internal func didDeselectItem(at index: Int) {
             
         }
         // ====================

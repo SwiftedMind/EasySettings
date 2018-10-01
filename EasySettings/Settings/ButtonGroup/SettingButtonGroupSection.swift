@@ -9,12 +9,12 @@
 import UIKit
 import IGListKit
 
-protocol SettingButtonGroupSectionDelegate: class {
+public protocol SettingButtonGroupSectionDelegate: class {
     func settingButtonGroup(didTapButton setting: Setting.Button)
 }
 
 extension Setting {
-    class ButtonGroupSection: Setting.BaseGroupSection, SettingButtonCellDelegate, ListBindingSectionControllerSelectionDelegate, ListBindingSectionControllerDataSource {
+    internal class ButtonGroupSection: Setting.BaseGroupSection, SettingButtonCellDelegate, ListBindingSectionControllerSelectionDelegate, ListBindingSectionControllerDataSource {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -22,7 +22,7 @@ extension Setting {
             return model as! Setting.ButtonGroup
         }
         
-        public weak var delegate: SettingButtonGroupSectionDelegate?
+        private weak var delegate: SettingButtonGroupSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -36,7 +36,7 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, viewModelsFor object: Any) -> [ListDiffable] {
+        internal func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, viewModelsFor object: Any) -> [ListDiffable] {
             guard let setting = object as? Setting.ButtonGroupModel else { return [] }
             
             self.model = setting
@@ -45,22 +45,22 @@ extension Setting {
             return setting.items
         }
         
-        func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, sizeForViewModel viewModel: Any, at index: Int) -> CGSize {
+        internal func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, sizeForViewModel viewModel: Any, at index: Int) -> CGSize {
             guard let settingItem = viewModel as? Setting.Button else { fatalError() }
             
             let width = collectionContext!.containerSize.width
             return CGSize(width: width, height: settingItem.height)
         }
         
-        func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didSelectItemAt index: Int, viewModel: Any) {
+        internal func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didSelectItemAt index: Int, viewModel: Any) {
             
         }
         
-        func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didDeselectItemAt index: Int, viewModel: Any) {
+        internal func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didDeselectItemAt index: Int, viewModel: Any) {
             
         }
         
-        func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, cellForViewModel viewModel: Any, at index: Int) -> UICollectionViewCell & ListBindable {
+        internal func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, cellForViewModel viewModel: Any, at index: Int) -> UICollectionViewCell & ListBindable {
             guard let settingItem = viewModel as? Setting.Button else { fatalError() }
             
             if let cell = collectionContext!.dequeueReusableCell(of: Setting.ButtonCell.self, for: self, at: index) as? Setting.ButtonCell {
@@ -77,15 +77,15 @@ extension Setting {
             fatalError()
         }
         
-        func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didHighlightItemAt index: Int, viewModel: Any) {}
+        internal func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didHighlightItemAt index: Int, viewModel: Any) {}
         
-        func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didUnhighlightItemAt index: Int, viewModel: Any) {}
+        internal func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, didUnhighlightItemAt index: Int, viewModel: Any) {}
         // ====================
         
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        override func didSelectItem(at index: Int) {
+        override internal  func didSelectItem(at index: Int) {
             delegate?.settingButtonGroup(didTapButton: setting.items[index])
         }
         // ====================

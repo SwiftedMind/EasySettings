@@ -10,24 +10,24 @@ import UIKit
 import IGListKit
 import SwipeCell
 
-protocol SettingDuoColorFieldsCellDelegate: class {
+internal protocol SettingDuoColorFieldsCellDelegate: class {
     func didTap(onLeftColor color: UIColor)
     func didTap(onRightColor color: UIColor)
 }
 
 extension Setting {
-    class DuoColorFieldsCell: SwipeCell {
+    internal class DuoColorFieldsCell: SwipeCell {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
         public weak var delegate: SettingDuoColorFieldsCellDelegate?
         private var listModel: Setting.DuoColorFieldsModel?
         
-        override var swipeCellItems: [SwipeCell.Item] {
+        override open var swipeCellItems: [SwipeCell.Item] {
             return []
         }
         
-        lazy var colorLeftButton: UIButton = {
+        private lazy var colorLeftButton: UIButton = {
             let button = UIButton()
             button.setTitle("Text", for: UIControl.State.normal)
             button.addTarget(self, action: #selector(handleTap(_:)), for: UIControl.Event.touchUpInside)
@@ -35,7 +35,7 @@ extension Setting {
             return button
         }()
         
-        lazy var colorRightButton: UIButton = {
+        private lazy var colorRightButton: UIButton = {
             let button = UIButton()
             button.setTitle("Background", for: UIControl.State.normal)
             button.addTarget(self, action: #selector(handleTap(_:)), for: UIControl.Event.touchUpInside)
@@ -43,7 +43,7 @@ extension Setting {
             return button
         }()
         
-        lazy var colorButtonsStackView: UIStackView = {
+        private lazy var colorButtonsStackView: UIStackView = {
             let stackView = UIStackView(arrangedSubviews: [colorLeftButton, colorRightButton])
             stackView.distribution = .fillEqually
             stackView.axis = .horizontal
@@ -55,7 +55,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(frame: CGRect) {
+        override internal init(frame: CGRect) {
             super.init(frame: frame)
             holderView.backgroundColor = .clear
             swipeEnabled = false
@@ -68,7 +68,7 @@ extension Setting {
             }
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required internal init?(coder aDecoder: NSCoder) {
             fatalError()
         }
         // ====================
@@ -89,7 +89,7 @@ extension Setting {
             }
         }
         
-        public func configure(withListModel listModel: Setting.DuoColorFieldsModel) {
+        internal func configure(withListModel listModel: Setting.DuoColorFieldsModel) {
             
             self.listModel = listModel
             

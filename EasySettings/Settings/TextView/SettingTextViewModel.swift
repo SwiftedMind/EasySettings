@@ -9,13 +9,13 @@
 import UIKit
 import IGListKit
 
-protocol SettingTextViewConfiguration {
+public protocol SettingTextViewConfiguration {
     func configured(_ setting: Setting.TextView) -> Setting.TextView
 }
 
 extension Setting {
-    typealias TextView = TextViewModel
-    class TextViewModel: Setting.BaseModel {
+    public typealias TextView = TextViewModel
+    public class TextViewModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -31,7 +31,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 150
         }
@@ -39,11 +39,11 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override open var sectionController: ListSectionController {
             return Setting.TextViewSection()
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.TextViewModel, super.isEqual(toDiffableObject: object) else { return false }
             return self.text == object.text && self.font == object.font && self.isEditable == object.isEditable && self.textColor == object.textColor && self.isScrollEnabled == object.isScrollEnabled && self.backgroundColor == object.backgroundColor && self.textAlignment == object.textAlignment && self.centerVertically == object.centerVertically
         }

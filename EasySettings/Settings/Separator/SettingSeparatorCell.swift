@@ -10,24 +10,24 @@ import UIKit
 import IGListKit
 import SwipeCell
 
-protocol SettingSeparatorCellDelegate: class {
+internal protocol SettingSeparatorCellDelegate: class {
     
 }
 
 extension Setting {
-    class SeparatorCell: SwipeCell {
+    internal class SeparatorCell: SwipeCell {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        public weak var delegate: SettingSeparatorCellDelegate?
+        internal weak var delegate: SettingSeparatorCellDelegate?
         private var listModel: Setting.SeparatorModel?
         
         // swipe action buttons
-        override var swipeCellItems: [SwipeCell.Item] {
+        override open var swipeCellItems: [SwipeCell.Item] {
             return []
         }
         
-        lazy var line: UIView = {
+        private lazy var line: UIView = {
             let view = UIView()
             
             holderView.addSubview(view)
@@ -37,7 +37,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(frame: CGRect) {
+        override internal init(frame: CGRect) {
             super.init(frame: frame)
             holderView.backgroundColor = .clear
             swipeEnabled = false
@@ -50,7 +50,7 @@ extension Setting {
             }
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required internal init?(coder aDecoder: NSCoder) {
             fatalError()
         }
         // ====================
@@ -63,7 +63,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        public func configure(withListModel listModel: Setting.SeparatorModel) {
+        internal func configure(withListModel listModel: Setting.SeparatorModel) {
             self.listModel = listModel
             
             holderView.alpha = listModel.alpha

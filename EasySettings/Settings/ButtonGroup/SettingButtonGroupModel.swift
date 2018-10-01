@@ -11,13 +11,13 @@ import IGListKit
 
 
 /// Always includes SettingButtonConfiguration because that's needed.
-protocol SettingButtonGroupConfiguration: SettingButtonConfiguration {
+public protocol SettingButtonGroupConfiguration: SettingButtonConfiguration {
     func configured(_ setting: Setting.ButtonGroup) -> Setting.ButtonGroup
 }
 
 extension Setting {
-    typealias ButtonGroup = ButtonGroupModel
-    class ButtonGroupModel: Setting.BaseModel {
+    public typealias ButtonGroup = ButtonGroupModel
+    public class ButtonGroupModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -26,7 +26,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 45
         }
@@ -34,14 +34,14 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override open var sectionController: ListSectionController {
             let section = Setting.ButtonGroupSection()
             section.inset = inset
             
             return section
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.ButtonGroupModel, super.isEqual(toDiffableObject: object) else { return false }
             return true
         }

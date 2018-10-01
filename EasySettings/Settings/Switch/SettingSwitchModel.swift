@@ -9,13 +9,13 @@
 import UIKit
 import IGListKit
 
-protocol SettingSwitchConfiguration {
+public protocol SettingSwitchConfiguration {
     func configured(_ setting: Setting.Switch) -> Setting.Switch
 }
 
 extension Setting {
-    typealias Switch = SwitchModel
-    class SwitchModel: Setting.BaseModel {
+    public typealias Switch = SwitchModel
+    public class SwitchModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -30,7 +30,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 45
         }
@@ -38,11 +38,11 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override open var sectionController: ListSectionController {
             return Setting.SwitchSection()
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.SwitchModel, super.isEqual(toDiffableObject: object) else { return false }
             return self.isOn == object.isOn && self.text == object.text && self.isEnabled == object.isEnabled && self.font == object.font && self.textColor == object.textColor && self.textAlignment == object.textAlignment && self.backgroundColor == object.backgroundColor
         }

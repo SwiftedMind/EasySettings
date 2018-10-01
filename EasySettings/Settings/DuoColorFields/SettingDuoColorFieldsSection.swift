@@ -9,13 +9,13 @@
 import UIKit
 import IGListKit
 
-protocol SettingDuoColorFieldsSectionDelegate: class {
+public protocol SettingDuoColorFieldsSectionDelegate: class {
     func settingDuoColorFields(_ setting: Setting.DuoColorFields, requestsLeftColorChange fromColor: UIColor)
     func settingDuoColorFields(_ setting: Setting.DuoColorFields, requestsRightColorChange fromColor: UIColor)
 }
 
 extension Setting {
-    class DuoColorFieldsSection: Setting.BaseSection, SettingDuoColorFieldsCellDelegate {
+    internal class DuoColorFieldsSection: Setting.BaseSection, SettingDuoColorFieldsCellDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -23,7 +23,7 @@ extension Setting {
             return model as! Setting.DuoColorFields
         }
         
-        public weak var delegate: SettingDuoColorFieldsSectionDelegate?
+        private weak var delegate: SettingDuoColorFieldsSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -33,7 +33,7 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override func cellForItem(at index: Int) -> UICollectionViewCell {
+        override internal func cellForItem(at index: Int) -> UICollectionViewCell {
             if let cell = collectionContext!.dequeueReusableCell(of: Setting.DuoColorFieldsCell.self, for: self, at: index) as? Setting.DuoColorFieldsCell {
                 
                 cell.configure(withListModel: setting)
@@ -44,7 +44,7 @@ extension Setting {
             fatalError()
         }
         
-        override func didUpdate(to object: Any) {
+        override internal func didUpdate(to object: Any) {
             super.didUpdate(to: object)
             delegate = (setting.delegateOverride ?? viewController) as? SettingDuoColorFieldsSectionDelegate
         }
@@ -53,11 +53,11 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        func didTap(onLeftColor color: UIColor) {
+        internal func didTap(onLeftColor color: UIColor) {
             delegate?.settingDuoColorFields(setting, requestsLeftColorChange: color)
         }
         
-        func didTap(onRightColor color: UIColor) {
+        internal func didTap(onRightColor color: UIColor) {
             delegate?.settingDuoColorFields(setting, requestsRightColorChange: color)
         }
         

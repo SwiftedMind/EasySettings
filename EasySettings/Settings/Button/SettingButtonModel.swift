@@ -42,13 +42,17 @@ public enum SettingButtonType {
     }
 }
 
-protocol SettingButtonConfiguration {
+public protocol SettingButtonConfiguration {
     func configured(_ setting: Setting.Button) -> Setting.Button
 }
 
 extension Setting {
-    typealias Button = ButtonModel
-    class ButtonModel: Setting.BaseModel {
+    public typealias Button = ButtonModel
+    
+    /// Simple button.
+    ///
+    /// This setting adds the swipeItems set in the model to the cell.
+    public class ButtonModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -60,7 +64,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 50
         }
@@ -68,11 +72,11 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override open var sectionController: ListSectionController {
             return Setting.ButtonSection()
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.ButtonModel, super.isEqual(toDiffableObject: object) else { return false }
             
             return self.text == object.text && self.backgroundColor == object.backgroundColor && self.textColor == object.textColor && self.font == object.font
@@ -82,7 +86,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        func setButtonType(to type: SettingButtonType) {
+        public func setButtonType(to type: SettingButtonType) {
             backgroundColor = type.color
             textColor = type.textColor
             font = Setting.defaultMediumFont.withSize(16)

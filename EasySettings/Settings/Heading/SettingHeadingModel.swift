@@ -9,13 +9,13 @@
 import UIKit
 import IGListKit
 
-protocol SettingHeadingConfiguration {
+public protocol SettingHeadingConfiguration {
     func configured(_ setting: Setting.Heading) -> Setting.Heading
 }
 
 extension Setting {
-    typealias Heading = HeadingModel
-    class HeadingModel: Setting.BaseModel {
+    public typealias Heading = HeadingModel
+    public class HeadingModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -24,7 +24,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 50
         }
@@ -32,11 +32,11 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override public var sectionController: ListSectionController {
             return Setting.HeadingSection()
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.HeadingModel, super.isEqual(toDiffableObject: object) else { return false }
             return self.text == object.text
         }

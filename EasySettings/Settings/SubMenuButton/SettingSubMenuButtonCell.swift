@@ -10,16 +10,16 @@ import UIKit
 import IGListKit
 import SwipeCell
 
-protocol SettingSubMenuButtonCellDelegate: class {
+internal protocol SettingSubMenuButtonCellDelegate: class {
     //func didTapButton()
 }
 
 extension Setting {
-    class SubMenuButtonCell: SwipeCell, ListBindable {
+    internal class SubMenuButtonCell: SwipeCell, ListBindable {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        override var isHighlighted: Bool {
+        override internal var isHighlighted: Bool {
             didSet {
                 if isHighlighted {
                     UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: [.allowUserInteraction], animations: {
@@ -35,19 +35,19 @@ extension Setting {
             }
         }
         
-        public weak var delegate: SettingSubMenuButtonCellDelegate?
+        internal weak var delegate: SettingSubMenuButtonCellDelegate?
         private var listModel: Setting.SubMenuButtonModel?
         
         // swipe action buttons
-        override var swipeCellItems: [SwipeCell.Item] {
-            return listModel?.swipeActions ?? []
+        override open var swipeCellItems: [SwipeCell.Item] {
+            return listModel?.swipeItems ?? []
         }
         
         override var swipeWidth: CGFloat {
             return listModel?.swipeWidth ?? 120
         }
         
-        lazy var button: UIButton = {
+        private lazy var button: UIButton = {
             let button = UIButton()
             button.isUserInteractionEnabled = false
             
@@ -55,7 +55,7 @@ extension Setting {
             return button
         }()
         
-        lazy var arrowImageView: UIImageView = {
+        private lazy var arrowImageView: UIImageView = {
             let imageView = UIImageView(image: #imageLiteral(resourceName: "rightArrow").withRenderingMode(.alwaysTemplate))
             imageView.contentMode = .scaleAspectFit
             
@@ -86,7 +86,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(frame: CGRect) {
+        override internal init(frame: CGRect) {
             super.init(frame: frame)
             
             button.snp.makeConstraints { (make) in
@@ -115,7 +115,7 @@ extension Setting {
             }
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required internal init?(coder aDecoder: NSCoder) {
             fatalError()
         }
         // ====================
@@ -128,8 +128,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        
-        public func configure(withListModel listModel: Setting.SubMenuButtonModel) {
+        internal func configure(withListModel listModel: Setting.SubMenuButtonModel) {
             self.listModel = listModel
             
             button.setTitle(listModel.text, for: UIControl.State.normal)
@@ -144,7 +143,7 @@ extension Setting {
             bottomLineView.backgroundColor = listModel.backgroundColor.lighten(by: 0.05)
         }
         
-        func bindViewModel(_ viewModel: Any) {
+        internal func bindViewModel(_ viewModel: Any) {
             guard let viewModel = viewModel as? Setting.SubMenuButtonModel else { return }
             configure(withListModel: viewModel)
         }

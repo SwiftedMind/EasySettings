@@ -9,13 +9,17 @@
 import UIKit
 import IGListKit
 
-protocol SettingSubMenuButtonConfiguration {
+public protocol SettingSubMenuButtonConfiguration {
     func configured(_ setting: Setting.SubMenuButton) -> Setting.SubMenuButton
 }
 
 extension Setting {
-    typealias SubMenuButton = SubMenuButtonModel
-    class SubMenuButtonModel: Setting.BaseModel {
+    public typealias SubMenuButton = SubMenuButtonModel
+    
+    /// Simple button with an arrow on the right side.
+    ///
+    /// This setting adds the swipeItems set in the model to the cell.
+    public class SubMenuButtonModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -23,12 +27,11 @@ extension Setting {
         public var backgroundColor: UIColor = Setting.defaultLightBackground
         public var textColor: UIColor = UIColor(hex: 0xeeeeee)!
         public var font: UIFont = Setting.defaultBoldFont.withSize(16)
-        
         // ====================
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 50
             setButtonType(to: .normal)
@@ -37,11 +40,11 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override open var sectionController: ListSectionController {
             return Setting.SubMenuButtonSection()
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.SubMenuButtonModel, super.isEqual(toDiffableObject: object) else { return false }
             
             return self.text == object.text && self.backgroundColor == object.backgroundColor && self.textColor == object.textColor && self.font == object.font
@@ -51,7 +54,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        func setButtonType(to type: SettingButtonType) {
+        public func setButtonType(to type: SettingButtonType) {
             backgroundColor = type.color
             textColor = type.textColor
             font = Setting.defaultMediumFont.withSize(16)

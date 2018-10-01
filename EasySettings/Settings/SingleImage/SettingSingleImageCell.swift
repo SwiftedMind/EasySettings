@@ -10,20 +10,20 @@ import UIKit
 import IGListKit
 import SwipeCell
 
-protocol SettingSingleImageCellDelegate: class {
+internal protocol SettingSingleImageCellDelegate: class {
     func settingSingleImageDidTapOnImageView()
 }
 
 extension Setting {
-    class SingleImageCell: SwipeCell, ListBindable {
+    internal class SingleImageCell: SwipeCell, ListBindable {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        public weak var delegate: SettingSingleImageCellDelegate?
+        internal weak var delegate: SettingSingleImageCellDelegate?
         private var listModel: Setting.SingleImageModel?
         
         // swipe action buttons
-        override var swipeCellItems: [SwipeCell.Item] {
+        override open var swipeCellItems: [SwipeCell.Item] {
             return []
         }
         
@@ -49,7 +49,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(frame: CGRect) {
+        override internal init(frame: CGRect) {
             super.init(frame: frame)
             holderView.backgroundColor = UIColor(hex: 0x444444)
             swipeEnabled = false
@@ -67,7 +67,7 @@ extension Setting {
             
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required internal init?(coder aDecoder: NSCoder) {
             fatalError()
         }
         // ====================
@@ -84,11 +84,11 @@ extension Setting {
             
         }
         
-        public func configure(withListModel listModel: Setting.SingleImageModel) {
+        internal func configure(withListModel listModel: Setting.SingleImageModel) {
             self.listModel = listModel
         }
         
-        func bindViewModel(_ viewModel: Any) {
+        internal func bindViewModel(_ viewModel: Any) {
             guard let viewModel = viewModel as? Setting.SingleImageModel else { return }
             configure(withListModel: viewModel)
         }

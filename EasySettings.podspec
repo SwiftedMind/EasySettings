@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "EasySettings"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "A settings controller that allows you to easily add and design settings page UI's for your app"
 
   # This description is used to generate tags and improve search results.
@@ -91,7 +91,7 @@ This effectively is a settings page building kit. You can easily create a new se
   #
 
   spec.source_files  = "Classes", "EasySettings/**/*.{swift}"
-
+  spec.resources = "EasySettings/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
   # spec.public_header_files = "Classes/**/*.h"
 
 

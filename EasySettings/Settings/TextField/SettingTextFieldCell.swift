@@ -10,25 +10,25 @@ import UIKit
 import IGListKit
 import SwipeCell
 
-protocol SettingTextFieldCellDelegate: class {
+internal protocol SettingTextFieldCellDelegate: class {
     func settingTextField(_ textField: UITextField, didChangeToNewText text: String, inCell cell: Setting.TextFieldCell)
     func settingTextFieldDidBecomeFirstResponder(inCell cell: Setting.TextFieldCell)
 }
 
 extension Setting {
-    class TextFieldCell: SwipeCell, UITextFieldDelegate, ListBindable {
+    internal class TextFieldCell: SwipeCell, UITextFieldDelegate, ListBindable {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        public var itemIndex: Int = 0
-        public weak var delegate: SettingTextFieldCellDelegate?
+        internal var itemIndex: Int = 0
+        internal weak var delegate: SettingTextFieldCellDelegate?
         private var listModel: Setting.TextFieldModel?
         
         override var swipeCellItems: [SwipeCell.Item] {
             return []
         }
         
-        lazy var textField: PaddingTextField = {
+        private lazy var textField: PaddingTextField = {
             let textField = PaddingTextField()
             
             textField.font = Setting.defaultFont.withSize(16)
@@ -50,7 +50,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(frame: CGRect) {
+        override internal init(frame: CGRect) {
             super.init(frame: frame)
             holderView.backgroundColor = .clear
             swipeEnabled = false
@@ -63,7 +63,7 @@ extension Setting {
             }
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required internal init?(coder aDecoder: NSCoder) {
             fatalError()
         }
         // ====================
@@ -76,7 +76,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        public func configure(withListModel listModel: Setting.TextFieldModel) {
+        internal func configure(withListModel listModel: Setting.TextFieldModel) {
             self.listModel = listModel
             
             textField.text = listModel.text
@@ -84,20 +84,20 @@ extension Setting {
             textField.attributedPlaceholder = NSAttributedString(string: listModel.placeholder, attributes: [NSAttributedString.Key.font: Setting.defaultFont.withSize(16), NSAttributedString.Key.foregroundColor: Setting.defaultDarkBackground])
         }
         
-        func textFieldDidBeginEditing(_ textField: UITextField) {
+        internal func textFieldDidBeginEditing(_ textField: UITextField) {
             delegate?.settingTextFieldDidBecomeFirstResponder(inCell: self)
         }
         
-        func textFieldDidEndEditing(_ textField: UITextField) {
+        internal func textFieldDidEndEditing(_ textField: UITextField) {
             delegate?.settingTextField(textField, didChangeToNewText: textField.text ?? "", inCell: self)
         }
         
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
             return true
         }
         
-        func bindViewModel(_ viewModel: Any) {
+        internal func bindViewModel(_ viewModel: Any) {
             guard let model = viewModel as? Setting.TextField else { return }
             configure(withListModel: model)
         }

@@ -9,13 +9,13 @@
 import UIKit
 import IGListKit
 
-protocol SettingSeparatorConfiguration {
+public protocol SettingSeparatorConfiguration {
     func configured(_ setting: Setting.Separator) -> Setting.Separator
 }
 
 extension Setting {
-    typealias Separator = Setting.SeparatorModel
-    class SeparatorModel: Setting.BaseModel {
+    public typealias Separator = Setting.SeparatorModel
+    public class SeparatorModel: Setting.BaseModel {
         
         
         public var color: UIColor = Setting.defaultDarkBackground
@@ -24,7 +24,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 20
         }
@@ -32,11 +32,11 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override public var sectionController: ListSectionController {
             return Setting.SeparatorSection()
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.SeparatorModel, super.isEqual(toDiffableObject: object) else { return false }
             return self.color == object.color && self.alpha == object.alpha
         }

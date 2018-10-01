@@ -9,13 +9,13 @@
 import UIKit
 import IGListKit
 
-protocol SettingTextFieldConfiguration {
+public protocol SettingTextFieldConfiguration {
     func configured(_ setting: Setting.TextField) -> Setting.TextField
 }
 
 extension Setting {
-    typealias TextField = Setting.TextFieldModel
-    class TextFieldModel: Setting.BaseModel {
+    public typealias TextField = Setting.TextFieldModel
+    public class TextFieldModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -25,7 +25,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 40
         }
@@ -33,11 +33,11 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override open var sectionController: ListSectionController {
             return Setting.TextFieldSection()
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.TextFieldModel, super.isEqual(toDiffableObject: object) else { return false }
             return self.text == object.text && self.placeholder == object.placeholder
         }

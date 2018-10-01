@@ -9,13 +9,13 @@
 import UIKit
 import IGListKit
 
-protocol SettingSegmentedControlConfiguration {
+public protocol SettingSegmentedControlConfiguration {
     func configured(_ setting: Setting.SegmentedControl) -> Setting.SegmentedControl
 }
 
 extension Setting {
-    typealias SegmentedControl = SegmentedControlModel
-    class SegmentedControlModel: Setting.BaseModel {
+    public typealias SegmentedControl = SegmentedControlModel
+    public class SegmentedControlModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -27,7 +27,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 55
         }
@@ -35,11 +35,11 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override open var sectionController: ListSectionController {
             return Setting.SegmentedControlSection()
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard reloadUIOnChange else { return true }
             guard let object = object as? Setting.SegmentedControlModel, super.isEqual(toDiffableObject: object) else { return false }
             return self.segments == object.segments && self.activeSegment == object.activeSegment && self.segmentsWidth == object.segmentsWidth

@@ -11,7 +11,7 @@ import IGListKit
 import SwipeCell
 
 extension Setting {
-    class BaseGroupSection: ListBindingSectionController<ListDiffable>, ListSupplementaryViewSource, SwipeCellItemDelegate {
+    open class BaseGroupSection: ListBindingSectionController<ListDiffable>, ListSupplementaryViewSource, SwipeCellItemDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -37,11 +37,11 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        func didTapOnItem(_ item: SwipeCell.Item) {
+        public func didTapOnItem(_ item: SwipeCell.Item) {
             itemDelegate?.didTap(onItem: item, ofSetting: model)
         }
         
-        func supportedElementKinds() -> [String] {
+        public func supportedElementKinds() -> [String] {
             if model.headerTitle == "" {
                 return []
             }
@@ -49,7 +49,7 @@ extension Setting {
             return [UICollectionView.elementKindSectionHeader]
         }
         
-        func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
+        public func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
             let view = collectionContext?.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: self, class: Setting.HeaderView.self, at: index) as! Setting.HeaderView
             
             view.setTitle(to: model.headerTitle)
@@ -57,7 +57,7 @@ extension Setting {
             return view
         }
         
-        func sizeForSupplementaryView(ofKind elementKind: String, at index: Int) -> CGSize {
+        public func sizeForSupplementaryView(ofKind elementKind: String, at index: Int) -> CGSize {
             return CGSize(width: collectionContext!.containerSize.width, height: model.headerHeight)
         }
         // ====================

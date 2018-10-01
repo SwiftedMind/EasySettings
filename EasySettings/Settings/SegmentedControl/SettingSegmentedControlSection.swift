@@ -9,12 +9,12 @@
 import UIKit
 import IGListKit
 
-protocol SettingSegmentedControlSectionDelegate: class {
+public protocol SettingSegmentedControlSectionDelegate: class {
     func settingSegmentedControl(_ setting: Setting.SegmentedControl, didChangeToNewIndex newIndex: Int)
 }
 
 extension Setting {
-    class SegmentedControlSection: Setting.BaseSection, SettingSegmentedControlCellDelegate {
+    internal class SegmentedControlSection: Setting.BaseSection, SettingSegmentedControlCellDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -22,7 +22,7 @@ extension Setting {
             return model as! Setting.SegmentedControl
         }
         
-        public weak var delegate: SettingSegmentedControlSectionDelegate?
+        internal weak var delegate: SettingSegmentedControlSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -32,7 +32,7 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override func cellForItem(at index: Int) -> UICollectionViewCell {
+        override internal func cellForItem(at index: Int) -> UICollectionViewCell {
             if let cell = collectionContext!.dequeueReusableCell(of: Setting.SegmentedControlCell.self, for: self, at: index) as? Setting.SegmentedControlCell {
                 
                 cell.configure(withListModel: setting)
@@ -44,7 +44,7 @@ extension Setting {
             fatalError()
         }
         
-        override func didUpdate(to object: Any) {
+        override internal func didUpdate(to object: Any) {
             super.didUpdate(to: object)
             delegate = (setting.delegateOverride ?? viewController) as? SettingSegmentedControlSectionDelegate
         }
@@ -54,7 +54,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        func segmentedControlDidchange(toNewIndex newIndex: Int) {
+        internal func segmentedControlDidchange(toNewIndex newIndex: Int) {
             delegate?.settingSegmentedControl(setting, didChangeToNewIndex: newIndex)
         }
         // ====================

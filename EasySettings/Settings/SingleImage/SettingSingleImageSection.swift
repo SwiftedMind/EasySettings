@@ -9,12 +9,12 @@
 import UIKit
 import IGListKit
 
-protocol SettingSingleImageSectionDelegate: class {
+public protocol SettingSingleImageSectionDelegate: class {
     func settingSingleImageDidRequestImageChange(_ setting: Setting.SingleImage)
 }
 
 extension Setting {
-    class SingleImageSection: Setting.BaseSection, SettingSingleImageCellDelegate {
+    internal class SingleImageSection: Setting.BaseSection, SettingSingleImageCellDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -22,7 +22,7 @@ extension Setting {
             return model as! Setting.SingleImage
         }
         
-        public weak var delegate: SettingSingleImageSectionDelegate?
+        internal weak var delegate: SettingSingleImageSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -32,7 +32,7 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override func cellForItem(at index: Int) -> UICollectionViewCell {
+        override internal func cellForItem(at index: Int) -> UICollectionViewCell {
             if let cell = collectionContext!.dequeueReusableCell(of: Setting.SingleImageCell.self, for: self, at: index) as? Setting.SingleImageCell {
                 
                 cell.configure(withListModel: setting)
@@ -44,7 +44,7 @@ extension Setting {
             fatalError()
         }
         
-        override func didUpdate(to object: Any) {
+        override internal func didUpdate(to object: Any) {
             super.didUpdate(to: object)
             delegate = (setting.delegateOverride ?? viewController) as? SettingSingleImageSectionDelegate
         }
@@ -54,7 +54,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        func settingSingleImageDidTapOnImageView() {
+        internal func settingSingleImageDidTapOnImageView() {
             delegate?.settingSingleImageDidRequestImageChange(setting)
         }
         // ====================

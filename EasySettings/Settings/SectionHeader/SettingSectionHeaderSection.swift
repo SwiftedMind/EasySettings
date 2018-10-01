@@ -9,12 +9,12 @@
 import UIKit
 import IGListKit
 
-protocol SettingSectionHeaderSectionDelegate: class {
+public protocol SettingSectionHeaderSectionDelegate: class {
     
 }
 
 extension Setting {
-    class SectionHeaderSection: Setting.BaseSection, SettingSectionHeaderCellDelegate {
+    internal class SectionHeaderSection: Setting.BaseSection, SettingSectionHeaderCellDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -22,7 +22,7 @@ extension Setting {
             return model as! Setting.SectionHeaderModel
         }
         
-        public weak var delegate: SettingSectionHeaderSectionDelegate?
+        internal weak var delegate: SettingSectionHeaderSectionDelegate?
         // ====================
         
         // MARK: - Initializers
@@ -32,7 +32,7 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override func cellForItem(at index: Int) -> UICollectionViewCell {
+        override internal func cellForItem(at index: Int) -> UICollectionViewCell {
             if let cell = collectionContext!.dequeueReusableCell(of: Setting.SectionHeaderCell.self, for: self, at: index) as? Setting.SectionHeaderCell {
                 
                 cell.configure(withListModel: setting)
@@ -47,7 +47,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        override func supportedElementKinds() -> [String] {
+        override internal func supportedElementKinds() -> [String] {
             return []
         }
         // ====================

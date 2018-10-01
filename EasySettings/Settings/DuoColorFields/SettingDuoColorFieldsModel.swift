@@ -9,13 +9,13 @@
 import UIKit
 import IGListKit
 
-protocol SettingDuoColorFieldsConfiguration {
+public protocol SettingDuoColorFieldsConfiguration {
     func configured(_ setting: Setting.DuoColorFields) -> Setting.DuoColorFields
 }
 
 extension Setting {
-    typealias DuoColorFields = Setting.DuoColorFieldsModel
-    class DuoColorFieldsModel: Setting.BaseModel {
+    public typealias DuoColorFields = Setting.DuoColorFieldsModel
+    public class DuoColorFieldsModel: Setting.BaseModel {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -26,7 +26,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(_ id: String) {
+        override public init(_ id: String) {
             super.init(id)
             height = 40
         }
@@ -34,11 +34,11 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override var sectionController: ListSectionController {
+        override public var sectionController: ListSectionController {
             return Setting.DuoColorFieldsSection()
         }
         
-        override func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.DuoColorFieldsModel, super.isEqual(toDiffableObject: object) else { return false }
             return self.colors == object.colors && self.colorLabels == object.colorLabels && self.colorIds == object.colorIds
         }

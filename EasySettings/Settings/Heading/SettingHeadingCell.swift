@@ -10,16 +10,16 @@ import UIKit
 import IGListKit
 import SwipeCell
 
-protocol SettingHeadingCellDelegate: class {
+internal protocol SettingHeadingCellDelegate: class {
     
 }
 
 extension Setting {
-    class HeadingCell: SwipeCell, ListBindable {
+    internal class HeadingCell: SwipeCell, ListBindable {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        public weak var delegate: SettingHeadingCellDelegate?
+        internal weak var delegate: SettingHeadingCellDelegate?
         private var listModel: Setting.HeadingModel?
         
         // swipe action buttons
@@ -27,7 +27,7 @@ extension Setting {
             return []
         }
         
-        public lazy var label: UILabel = {
+        internal lazy var label: UILabel = {
             let label = UILabel()
             label.font = Setting.defaultBoldFont.withSize(24)
             label.minimumScaleFactor = 0.6
@@ -41,7 +41,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(frame: CGRect) {
+        override internal init(frame: CGRect) {
             super.init(frame: frame)
             holderView.backgroundColor = .clear
             swipeEnabled = false
@@ -52,7 +52,7 @@ extension Setting {
             
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required internal init?(coder aDecoder: NSCoder) {
             fatalError()
         }
         // ====================
@@ -65,12 +65,12 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        public func configure(withListModel listModel: Setting.HeadingModel) {
+        internal func configure(withListModel listModel: Setting.HeadingModel) {
             self.listModel = listModel
             label.text = listModel.text
         }
         
-        func bindViewModel(_ viewModel: Any) {
+        internal func bindViewModel(_ viewModel: Any) {
             guard let viewModel = viewModel as? Setting.HeadingModel else { return }
             configure(withListModel: viewModel)
         }

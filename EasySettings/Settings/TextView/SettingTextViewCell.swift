@@ -10,24 +10,24 @@ import UIKit
 import IGListKit
 import SwipeCell
 
-protocol SettingTextViewCellDelegate: class {
+internal protocol SettingTextViewCellDelegate: class {
     func settingTextview(_ textView: UITextView, didChangeToNewText text: String)
 }
 
 extension Setting {
-    class TextViewCell: SwipeCell, ListBindable, UITextViewDelegate {
+    internal class TextViewCell: SwipeCell, ListBindable, UITextViewDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        public weak var delegate: SettingTextViewCellDelegate?
+        internal weak var delegate: SettingTextViewCellDelegate?
         private var listModel: Setting.TextViewModel?
         
         // swipe action buttons
-        override var swipeCellItems: [SwipeCell.Item] {
+        override open var swipeCellItems: [SwipeCell.Item] {
             return []
         }
         
-        lazy public var textView: UITextView = {
+        lazy private var textView: UITextView = {
             let textView = UITextView()
             textView.font = .boldSystemFont(ofSize: 18)
             textView.textColor = UIColor(hex: 0xeeeeee)
@@ -44,7 +44,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(frame: CGRect) {
+        override internal init(frame: CGRect) {
             super.init(frame: frame)
             holderView.backgroundColor = .clear
             swipeEnabled = false
@@ -57,7 +57,7 @@ extension Setting {
             }
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required internal init?(coder aDecoder: NSCoder) {
             fatalError()
         }
         // ====================
@@ -70,7 +70,7 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        public func configure(withListModel listModel: Setting.TextViewModel) {
+        internal func configure(withListModel listModel: Setting.TextViewModel) {
             self.listModel = listModel
             self.textView.text = listModel.text
             self.textView.font = listModel.font
@@ -87,12 +87,12 @@ extension Setting {
             }
         }
         
-        func bindViewModel(_ viewModel: Any) {
+        internal func bindViewModel(_ viewModel: Any) {
             guard let viewModel = viewModel as? Setting.TextViewModel else { return }
             configure(withListModel: viewModel)
         }
         
-        func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        internal func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
             delegate?.settingTextview(textView, didChangeToNewText: textView.text)
             return true
         }

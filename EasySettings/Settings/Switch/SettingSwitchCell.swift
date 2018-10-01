@@ -10,20 +10,20 @@ import UIKit
 import IGListKit
 import SwipeCell
 
-protocol SettingSwitchCellDelegate: class {
+internal protocol SettingSwitchCellDelegate: class {
     func switchFlipped(toNewState isOn: Bool)
 }
 
 extension Setting {
-    class SwitchCell: SwipeCell, ListBindable {
+    internal class SwitchCell: SwipeCell, ListBindable {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        public weak var delegate: SettingSwitchCellDelegate?
+        internal weak var delegate: SettingSwitchCellDelegate?
         private var listModel: Setting.SwitchModel?
         
         // swipe action buttons
-        override var swipeCellItems: [SwipeCell.Item] {
+        override open var swipeCellItems: [SwipeCell.Item] {
             return []
         }
         
@@ -49,7 +49,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init(frame: CGRect) {
+        override internal init(frame: CGRect) {
             super.init(frame: frame)
             holderView.backgroundColor = .clear
             swipeEnabled = false
@@ -68,7 +68,7 @@ extension Setting {
             
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required internal init?(coder aDecoder: NSCoder) {
             fatalError()
         }
         // ====================
@@ -85,7 +85,7 @@ extension Setting {
             delegate?.switchFlipped(toNewState: checkbox.isOn)
         }
         
-        public func configure(withListModel listModel: Setting.SwitchModel) {
+        internal func configure(withListModel listModel: Setting.SwitchModel) {
             self.listModel = listModel
             
             checkbox.isOn = listModel.isOn
@@ -99,7 +99,7 @@ extension Setting {
             
         }
         
-        func bindViewModel(_ viewModel: Any) {
+        internal func bindViewModel(_ viewModel: Any) {
             guard let viewModel = viewModel as? Setting.SwitchModel else { return }
             configure(withListModel: viewModel)
         }
