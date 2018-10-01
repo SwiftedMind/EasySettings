@@ -38,7 +38,7 @@ extension SettingsPage {
         
         private lazy var backButton: UIButton = {
             let button = UIButton()
-            button.setImage(#imageLiteral(resourceName: "backArrow"), for: UIControl.State.normal)
+            button.setImage(UIImage(named: "backArrow", in: Bundle(for: SettingsPage.Controller.self), compatibleWith: nil), for: UIControl.State.normal)
             button.imageView?.contentMode = .scaleAspectFit
             button.addTarget(self, action: #selector(backButtonTapped(_:)), for: UIControl.Event.touchUpInside)
             

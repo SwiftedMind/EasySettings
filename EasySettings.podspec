@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "EasySettings"
-  spec.version      = "0.0.3"
+  spec.version      = "0.0.4"
   spec.summary      = "A settings controller that allows you to easily add and design settings page UI's for your app"
 
   # This description is used to generate tags and improve search results.
