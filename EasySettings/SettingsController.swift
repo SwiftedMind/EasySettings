@@ -103,7 +103,12 @@ class SettingsController: UIViewController, UINavigationControllerDelegate {
         
         topView.snp.makeConstraints { (make) in
             make.leading.equalToSuperview()
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            } else {
+                make.top.equalToSuperview()
+            }
+            
             make.trailing.equalToSuperview()
             make.height.equalTo(40)
         }
@@ -117,7 +122,11 @@ class SettingsController: UIViewController, UINavigationControllerDelegate {
         
         titleLabel.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            } else {
+                make.top.equalToSuperview()
+            }
             make.height.equalTo(35)
         }
         
@@ -130,7 +139,11 @@ class SettingsController: UIViewController, UINavigationControllerDelegate {
         backButton.snp.makeConstraints { (make) in
             make.leading.equalToSuperview()
             make.width.equalTo(60)
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            } else {
+                make.top.equalToSuperview()
+            }
             make.bottom.equalToSuperview()
         }
         
