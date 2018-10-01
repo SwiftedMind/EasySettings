@@ -132,13 +132,13 @@ This effectively is a settings page building kit. You can easily create a new se
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
-  s.dependency 'IGListKit', ~> '3.4'
-  s.dependency 'SnapKit', ~> '4.0'
-  s.dependency 'SwifterSwift', ~> '4.6'
-  s.dependency 'SwipeCell'
-  s.dependency 'AdvancedSegmentedControl'
-  s.dependency 'UIImageColors', ~> '2.0'
+  spec.dependency 'IGListKit', '~> 3.4'
+  spec.dependency 'SnapKit', '~> 4.0'
+  spec.dependency 'SwifterSwift', '~> 4.6'
+  spec.dependency 'SwipeCell'
+  spec.dependency 'AdvancedSegmentedControl'
+  spec.dependency 'UIImageColors', '~> 2.0'
 
-s.swift_version = "4.2""
+spec.swift_version = "4.2"
 
 end
