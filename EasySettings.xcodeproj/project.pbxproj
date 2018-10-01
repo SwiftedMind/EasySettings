@@ -10,6 +10,57 @@
 		95F70A1A216159D80034C5AD /* EasySettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F70A10216159D80034C5AD /* EasySettings.framework */; };
 		95F70A1F216159D80034C5AD /* EasySettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A1E216159D80034C5AD /* EasySettingsTests.swift */; };
 		95F70A21216159D80034C5AD /* EasySettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F70A13216159D80034C5AD /* EasySettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95F70A2D21615A3C0034C5AD /* HiddenViewBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A2A21615A3B0034C5AD /* HiddenViewBaseClass.swift */; };
+		95F70A2E21615A3C0034C5AD /* SettingsBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A2B21615A3B0034C5AD /* SettingsBaseClass.swift */; };
+		95F70A2F21615A3C0034C5AD /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A2C21615A3C0034C5AD /* SettingsController.swift */; };
+		95F70A8421615B840034C5AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A8321615B840034C5AD /* BaseViewController.swift */; };
+		95F70AC2216200110034C5AD /* SettingTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3221615B4A0034C5AD /* SettingTextViewCell.swift */; };
+		95F70AC3216200110034C5AD /* SettingTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3321615B4A0034C5AD /* SettingTextViewModel.swift */; };
+		95F70AC4216200110034C5AD /* SettingTextViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3421615B4A0034C5AD /* SettingTextViewSection.swift */; };
+		95F70AC6216200110034C5AD /* SettingSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3721615B4A0034C5AD /* SettingSectionHeaderCell.swift */; };
+		95F70AC8216200110034C5AD /* SettingSectionHeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3921615B4A0034C5AD /* SettingSectionHeaderSection.swift */; };
+		95F70AC9216200110034C5AD /* SettingSectionHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3A21615B4A0034C5AD /* SettingSectionHeaderModel.swift */; };
+		95F70ACA216200110034C5AD /* SettingButtonGroupSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3C21615B4A0034C5AD /* SettingButtonGroupSection.swift */; };
+		95F70ACB216200110034C5AD /* SettingButtonGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3D21615B4A0034C5AD /* SettingButtonGroupModel.swift */; };
+		95F70ACC216200110034C5AD /* SettingDuoColorFieldsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A3F21615B4A0034C5AD /* SettingDuoColorFieldsCell.swift */; };
+		95F70ACD216200110034C5AD /* SettingDuoColorFieldsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A4021615B4A0034C5AD /* SettingDuoColorFieldsSection.swift */; };
+		95F70ACE216200110034C5AD /* SettingDuoColorFieldsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A4121615B4A0034C5AD /* SettingDuoColorFieldsModel.swift */; };
+		95F70ACF216200110034C5AD /* SettingTextFieldGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A4321615B4A0034C5AD /* SettingTextFieldGroupModel.swift */; };
+		95F70AD0216200110034C5AD /* SettingTextFieldGroupSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A4421615B4A0034C5AD /* SettingTextFieldGroupSection.swift */; };
+		95F70AD4216200110034C5AD /* SettingSeparatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A4A21615B4A0034C5AD /* SettingSeparatorModel.swift */; };
+		95F70AD5216200110034C5AD /* SettingSeparatorSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A4B21615B4A0034C5AD /* SettingSeparatorSection.swift */; };
+		95F70AD6216200110034C5AD /* SettingSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A4C21615B4A0034C5AD /* SettingSeparatorCell.swift */; };
+		95F70AD7216200110034C5AD /* SettingHeadingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A4E21615B4A0034C5AD /* SettingHeadingModel.swift */; };
+		95F70AD8216200110034C5AD /* SettingHeadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A4F21615B4A0034C5AD /* SettingHeadingCell.swift */; };
+		95F70AD9216200110034C5AD /* SettingHeadingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A5021615B4A0034C5AD /* SettingHeadingSection.swift */; };
+		95F70ADA216200110034C5AD /* SettingTextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A5221615B4A0034C5AD /* SettingTextFieldModel.swift */; };
+		95F70ADB216200110034C5AD /* SettingTextFieldSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A5321615B4A0034C5AD /* SettingTextFieldSection.swift */; };
+		95F70ADC216200110034C5AD /* SettingTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A5421615B4A0034C5AD /* SettingTextFieldCell.swift */; };
+		95F70AE0216200110034C5AD /* SettingNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A5921615B4A0034C5AD /* SettingNamespace.swift */; };
+		95F70AE1216200110034C5AD /* SettingSingleImageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A5B21615B4A0034C5AD /* SettingSingleImageSection.swift */; };
+		95F70AE2216200110034C5AD /* SettingSingleImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A5C21615B4A0034C5AD /* SettingSingleImageModel.swift */; };
+		95F70AE3216200110034C5AD /* SettingSingleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A5D21615B4A0034C5AD /* SettingSingleImageCell.swift */; };
+		95F70AE4216200110034C5AD /* SettingButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A6021615B4A0034C5AD /* SettingButtonModel.swift */; };
+		95F70AE5216200110034C5AD /* SettingButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A6121615B4A0034C5AD /* SettingButtonCell.swift */; };
+		95F70AE6216200110034C5AD /* SettingButtonSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A6221615B4A0034C5AD /* SettingButtonSection.swift */; };
+		95F70AE7216200110034C5AD /* SettingSegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A6421615B4A0034C5AD /* SettingSegmentedControlCell.swift */; };
+		95F70AE8216200110034C5AD /* SettingSegmentedControlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A6521615B4A0034C5AD /* SettingSegmentedControlModel.swift */; };
+		95F70AE9216200110034C5AD /* SettingSegmentedControlSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A6621615B4A0034C5AD /* SettingSegmentedControlSection.swift */; };
+		95F70AEA216200110034C5AD /* SettingSwitchSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A6821615B4A0034C5AD /* SettingSwitchSection.swift */; };
+		95F70AEB216200110034C5AD /* SettingSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A6921615B4A0034C5AD /* SettingSwitchCell.swift */; };
+		95F70AEC216200110034C5AD /* SettingSwitchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A6A21615B4A0034C5AD /* SettingSwitchModel.swift */; };
+		95F70AF0216200110034C5AD /* SettingSubMenuButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A7021615B4A0034C5AD /* SettingSubMenuButtonModel.swift */; };
+		95F70AF1216200110034C5AD /* SettingSubMenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A7121615B4A0034C5AD /* SettingSubMenuButtonCell.swift */; };
+		95F70AF2216200110034C5AD /* SettingSubMenuButtonSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A7221615B4A0034C5AD /* SettingSubMenuButtonSection.swift */; };
+		95F70AF9216200110034C5AD /* SettingBaseGroupSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A7C21615B4A0034C5AD /* SettingBaseGroupSection.swift */; };
+		95F70AFA216200110034C5AD /* SettingBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A7D21615B4A0034C5AD /* SettingBaseModel.swift */; };
+		95F70AFB216200110034C5AD /* SettingBaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70A7E21615B4A0034C5AD /* SettingBaseSection.swift */; };
+		95F70B2B2162167E0034C5AD /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70B2A2162167E0034C5AD /* SettingHeaderView.swift */; };
+		95F70B8421622E0B0034C5AD /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70B8321622E0B0034C5AD /* UIColor+Extensions.swift */; };
+		95F70B86216232460034C5AD /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70B85216232460034C5AD /* PaddingTextField.swift */; };
+		95F70B88216233620034C5AD /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F70B87216233620034C5AD /* UITextField+Extensions.swift */; };
+		A9820D3BC566E9CF0C040304 /* Pods_EasySettingsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC26CE89B0BAC397F599EABA /* Pods_EasySettingsTests.framework */; };
+		E3B957A0E49623BAA6D432AC /* Pods_EasySettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234F4E776D6C019A8D55731F /* Pods_EasySettings.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +74,67 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		234F4E776D6C019A8D55731F /* Pods_EasySettings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasySettings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2734F78D6EB94AAA18CC4874 /* Pods-EasySettingsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasySettingsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasySettingsTests/Pods-EasySettingsTests.release.xcconfig"; sourceTree = "<group>"; };
+		6FA32694C0DF62B35AB65E91 /* Pods-EasySettings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasySettings.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasySettings/Pods-EasySettings.debug.xcconfig"; sourceTree = "<group>"; };
 		95F70A10216159D80034C5AD /* EasySettings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasySettings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F70A13216159D80034C5AD /* EasySettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasySettings.h; sourceTree = "<group>"; };
 		95F70A14216159D80034C5AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95F70A19216159D80034C5AD /* EasySettingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasySettingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F70A1E216159D80034C5AD /* EasySettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasySettingsTests.swift; sourceTree = "<group>"; };
 		95F70A20216159D80034C5AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95F70A2A21615A3B0034C5AD /* HiddenViewBaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenViewBaseClass.swift; sourceTree = "<group>"; };
+		95F70A2B21615A3B0034C5AD /* SettingsBaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBaseClass.swift; sourceTree = "<group>"; };
+		95F70A2C21615A3C0034C5AD /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		95F70A3221615B4A0034C5AD /* SettingTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextViewCell.swift; sourceTree = "<group>"; };
+		95F70A3321615B4A0034C5AD /* SettingTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextViewModel.swift; sourceTree = "<group>"; };
+		95F70A3421615B4A0034C5AD /* SettingTextViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextViewSection.swift; sourceTree = "<group>"; };
+		95F70A3721615B4A0034C5AD /* SettingSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderCell.swift; sourceTree = "<group>"; };
+		95F70A3921615B4A0034C5AD /* SettingSectionHeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderSection.swift; sourceTree = "<group>"; };
+		95F70A3A21615B4A0034C5AD /* SettingSectionHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderModel.swift; sourceTree = "<group>"; };
+		95F70A3C21615B4A0034C5AD /* SettingButtonGroupSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButtonGroupSection.swift; sourceTree = "<group>"; };
+		95F70A3D21615B4A0034C5AD /* SettingButtonGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButtonGroupModel.swift; sourceTree = "<group>"; };
+		95F70A3F21615B4A0034C5AD /* SettingDuoColorFieldsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDuoColorFieldsCell.swift; sourceTree = "<group>"; };
+		95F70A4021615B4A0034C5AD /* SettingDuoColorFieldsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDuoColorFieldsSection.swift; sourceTree = "<group>"; };
+		95F70A4121615B4A0034C5AD /* SettingDuoColorFieldsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDuoColorFieldsModel.swift; sourceTree = "<group>"; };
+		95F70A4321615B4A0034C5AD /* SettingTextFieldGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextFieldGroupModel.swift; sourceTree = "<group>"; };
+		95F70A4421615B4A0034C5AD /* SettingTextFieldGroupSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextFieldGroupSection.swift; sourceTree = "<group>"; };
+		95F70A4A21615B4A0034C5AD /* SettingSeparatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSeparatorModel.swift; sourceTree = "<group>"; };
+		95F70A4B21615B4A0034C5AD /* SettingSeparatorSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSeparatorSection.swift; sourceTree = "<group>"; };
+		95F70A4C21615B4A0034C5AD /* SettingSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSeparatorCell.swift; sourceTree = "<group>"; };
+		95F70A4E21615B4A0034C5AD /* SettingHeadingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeadingModel.swift; sourceTree = "<group>"; };
+		95F70A4F21615B4A0034C5AD /* SettingHeadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeadingCell.swift; sourceTree = "<group>"; };
+		95F70A5021615B4A0034C5AD /* SettingHeadingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeadingSection.swift; sourceTree = "<group>"; };
+		95F70A5221615B4A0034C5AD /* SettingTextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextFieldModel.swift; sourceTree = "<group>"; };
+		95F70A5321615B4A0034C5AD /* SettingTextFieldSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextFieldSection.swift; sourceTree = "<group>"; };
+		95F70A5421615B4A0034C5AD /* SettingTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextFieldCell.swift; sourceTree = "<group>"; };
+		95F70A5921615B4A0034C5AD /* SettingNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNamespace.swift; sourceTree = "<group>"; };
+		95F70A5B21615B4A0034C5AD /* SettingSingleImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSingleImageSection.swift; sourceTree = "<group>"; };
+		95F70A5C21615B4A0034C5AD /* SettingSingleImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSingleImageModel.swift; sourceTree = "<group>"; };
+		95F70A5D21615B4A0034C5AD /* SettingSingleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSingleImageCell.swift; sourceTree = "<group>"; };
+		95F70A6021615B4A0034C5AD /* SettingButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButtonModel.swift; sourceTree = "<group>"; };
+		95F70A6121615B4A0034C5AD /* SettingButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButtonCell.swift; sourceTree = "<group>"; };
+		95F70A6221615B4A0034C5AD /* SettingButtonSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButtonSection.swift; sourceTree = "<group>"; };
+		95F70A6421615B4A0034C5AD /* SettingSegmentedControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSegmentedControlCell.swift; sourceTree = "<group>"; };
+		95F70A6521615B4A0034C5AD /* SettingSegmentedControlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSegmentedControlModel.swift; sourceTree = "<group>"; };
+		95F70A6621615B4A0034C5AD /* SettingSegmentedControlSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSegmentedControlSection.swift; sourceTree = "<group>"; };
+		95F70A6821615B4A0034C5AD /* SettingSwitchSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSwitchSection.swift; sourceTree = "<group>"; };
+		95F70A6921615B4A0034C5AD /* SettingSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSwitchCell.swift; sourceTree = "<group>"; };
+		95F70A6A21615B4A0034C5AD /* SettingSwitchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSwitchModel.swift; sourceTree = "<group>"; };
+		95F70A7021615B4A0034C5AD /* SettingSubMenuButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSubMenuButtonModel.swift; sourceTree = "<group>"; };
+		95F70A7121615B4A0034C5AD /* SettingSubMenuButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSubMenuButtonCell.swift; sourceTree = "<group>"; };
+		95F70A7221615B4A0034C5AD /* SettingSubMenuButtonSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSubMenuButtonSection.swift; sourceTree = "<group>"; };
+		95F70A7C21615B4A0034C5AD /* SettingBaseGroupSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBaseGroupSection.swift; sourceTree = "<group>"; };
+		95F70A7D21615B4A0034C5AD /* SettingBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBaseModel.swift; sourceTree = "<group>"; };
+		95F70A7E21615B4A0034C5AD /* SettingBaseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBaseSection.swift; sourceTree = "<group>"; };
+		95F70A8321615B840034C5AD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		95F70B2A2162167E0034C5AD /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
+		95F70B8321622E0B0034C5AD /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		95F70B85216232460034C5AD /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
+		95F70B87216233620034C5AD /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		9D4FAFCD07319BA77D8D6C00 /* Pods-EasySettings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasySettings.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasySettings/Pods-EasySettings.release.xcconfig"; sourceTree = "<group>"; };
+		BD868C2FC45C8F7998BEA00F /* Pods-EasySettingsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasySettingsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasySettingsTests/Pods-EasySettingsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CC26CE89B0BAC397F599EABA /* Pods_EasySettingsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasySettingsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B957A0E49623BAA6D432AC /* Pods_EasySettings.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F70A1A216159D80034C5AD /* EasySettings.framework in Frameworks */,
+				A9820D3BC566E9CF0C040304 /* Pods_EasySettingsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +164,8 @@
 				95F70A12216159D80034C5AD /* EasySettings */,
 				95F70A1D216159D80034C5AD /* EasySettingsTests */,
 				95F70A11216159D80034C5AD /* Products */,
+				A330467ED81D6F9C283E9926 /* Pods */,
+				D0D7A13D246CCA77F248BE40 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +181,15 @@
 		95F70A12216159D80034C5AD /* EasySettings */ = {
 			isa = PBXGroup;
 			children = (
+				95F70B8221622DF60034C5AD /* Aux */,
+				95F70A3021615B4A0034C5AD /* Settings */,
+				95F70A2A21615A3B0034C5AD /* HiddenViewBaseClass.swift */,
+				95F70A2B21615A3B0034C5AD /* SettingsBaseClass.swift */,
+				95F70A2C21615A3C0034C5AD /* SettingsController.swift */,
 				95F70A13216159D80034C5AD /* EasySettings.h */,
 				95F70A14216159D80034C5AD /* Info.plist */,
+				95F70A8321615B840034C5AD /* BaseViewController.swift */,
+				95F70B2A2162167E0034C5AD /* SettingHeaderView.swift */,
 			);
 			path = EasySettings;
 			sourceTree = "<group>";
@@ -84,6 +201,204 @@
 				95F70A20216159D80034C5AD /* Info.plist */,
 			);
 			path = EasySettingsTests;
+			sourceTree = "<group>";
+		};
+		95F70A3021615B4A0034C5AD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A3121615B4A0034C5AD /* TextView */,
+				95F70A3521615B4A0034C5AD /* SectionHeader */,
+				95F70A3B21615B4A0034C5AD /* ButtonGroup */,
+				95F70A3E21615B4A0034C5AD /* DuoColorFields */,
+				95F70A4221615B4A0034C5AD /* TextFieldGroup */,
+				95F70A4921615B4A0034C5AD /* Separator */,
+				95F70A4D21615B4A0034C5AD /* Heading */,
+				95F70A5121615B4A0034C5AD /* TextField */,
+				95F70A5921615B4A0034C5AD /* SettingNamespace.swift */,
+				95F70A5A21615B4A0034C5AD /* SingleImage */,
+				95F70A5E21615B4A0034C5AD /* HorizontalList */,
+				95F70A5F21615B4A0034C5AD /* Button */,
+				95F70A6321615B4A0034C5AD /* SegmentedControl */,
+				95F70A6721615B4A0034C5AD /* Switch */,
+				95F70A6F21615B4A0034C5AD /* SubMenuButton */,
+				95F70A7B21615B4A0034C5AD /* Base */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		95F70A3121615B4A0034C5AD /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A3221615B4A0034C5AD /* SettingTextViewCell.swift */,
+				95F70A3321615B4A0034C5AD /* SettingTextViewModel.swift */,
+				95F70A3421615B4A0034C5AD /* SettingTextViewSection.swift */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		95F70A3521615B4A0034C5AD /* SectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A3721615B4A0034C5AD /* SettingSectionHeaderCell.swift */,
+				95F70A3921615B4A0034C5AD /* SettingSectionHeaderSection.swift */,
+				95F70A3A21615B4A0034C5AD /* SettingSectionHeaderModel.swift */,
+			);
+			path = SectionHeader;
+			sourceTree = "<group>";
+		};
+		95F70A3B21615B4A0034C5AD /* ButtonGroup */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A3C21615B4A0034C5AD /* SettingButtonGroupSection.swift */,
+				95F70A3D21615B4A0034C5AD /* SettingButtonGroupModel.swift */,
+			);
+			path = ButtonGroup;
+			sourceTree = "<group>";
+		};
+		95F70A3E21615B4A0034C5AD /* DuoColorFields */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A3F21615B4A0034C5AD /* SettingDuoColorFieldsCell.swift */,
+				95F70A4021615B4A0034C5AD /* SettingDuoColorFieldsSection.swift */,
+				95F70A4121615B4A0034C5AD /* SettingDuoColorFieldsModel.swift */,
+			);
+			path = DuoColorFields;
+			sourceTree = "<group>";
+		};
+		95F70A4221615B4A0034C5AD /* TextFieldGroup */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A4321615B4A0034C5AD /* SettingTextFieldGroupModel.swift */,
+				95F70A4421615B4A0034C5AD /* SettingTextFieldGroupSection.swift */,
+			);
+			path = TextFieldGroup;
+			sourceTree = "<group>";
+		};
+		95F70A4921615B4A0034C5AD /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A4A21615B4A0034C5AD /* SettingSeparatorModel.swift */,
+				95F70A4B21615B4A0034C5AD /* SettingSeparatorSection.swift */,
+				95F70A4C21615B4A0034C5AD /* SettingSeparatorCell.swift */,
+			);
+			path = Separator;
+			sourceTree = "<group>";
+		};
+		95F70A4D21615B4A0034C5AD /* Heading */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A4E21615B4A0034C5AD /* SettingHeadingModel.swift */,
+				95F70A4F21615B4A0034C5AD /* SettingHeadingCell.swift */,
+				95F70A5021615B4A0034C5AD /* SettingHeadingSection.swift */,
+			);
+			path = Heading;
+			sourceTree = "<group>";
+		};
+		95F70A5121615B4A0034C5AD /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A5221615B4A0034C5AD /* SettingTextFieldModel.swift */,
+				95F70A5321615B4A0034C5AD /* SettingTextFieldSection.swift */,
+				95F70A5421615B4A0034C5AD /* SettingTextFieldCell.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		95F70A5A21615B4A0034C5AD /* SingleImage */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A5B21615B4A0034C5AD /* SettingSingleImageSection.swift */,
+				95F70A5C21615B4A0034C5AD /* SettingSingleImageModel.swift */,
+				95F70A5D21615B4A0034C5AD /* SettingSingleImageCell.swift */,
+			);
+			path = SingleImage;
+			sourceTree = "<group>";
+		};
+		95F70A5E21615B4A0034C5AD /* HorizontalList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HorizontalList;
+			sourceTree = "<group>";
+		};
+		95F70A5F21615B4A0034C5AD /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A6021615B4A0034C5AD /* SettingButtonModel.swift */,
+				95F70A6121615B4A0034C5AD /* SettingButtonCell.swift */,
+				95F70A6221615B4A0034C5AD /* SettingButtonSection.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		95F70A6321615B4A0034C5AD /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A6421615B4A0034C5AD /* SettingSegmentedControlCell.swift */,
+				95F70A6521615B4A0034C5AD /* SettingSegmentedControlModel.swift */,
+				95F70A6621615B4A0034C5AD /* SettingSegmentedControlSection.swift */,
+			);
+			path = SegmentedControl;
+			sourceTree = "<group>";
+		};
+		95F70A6721615B4A0034C5AD /* Switch */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A6821615B4A0034C5AD /* SettingSwitchSection.swift */,
+				95F70A6921615B4A0034C5AD /* SettingSwitchCell.swift */,
+				95F70A6A21615B4A0034C5AD /* SettingSwitchModel.swift */,
+			);
+			path = Switch;
+			sourceTree = "<group>";
+		};
+		95F70A6F21615B4A0034C5AD /* SubMenuButton */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A7021615B4A0034C5AD /* SettingSubMenuButtonModel.swift */,
+				95F70A7121615B4A0034C5AD /* SettingSubMenuButtonCell.swift */,
+				95F70A7221615B4A0034C5AD /* SettingSubMenuButtonSection.swift */,
+			);
+			path = SubMenuButton;
+			sourceTree = "<group>";
+		};
+		95F70A7B21615B4A0034C5AD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				95F70A7C21615B4A0034C5AD /* SettingBaseGroupSection.swift */,
+				95F70A7D21615B4A0034C5AD /* SettingBaseModel.swift */,
+				95F70A7E21615B4A0034C5AD /* SettingBaseSection.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		95F70B8221622DF60034C5AD /* Aux */ = {
+			isa = PBXGroup;
+			children = (
+				95F70B8321622E0B0034C5AD /* UIColor+Extensions.swift */,
+				95F70B85216232460034C5AD /* PaddingTextField.swift */,
+				95F70B87216233620034C5AD /* UITextField+Extensions.swift */,
+			);
+			path = Aux;
+			sourceTree = "<group>";
+		};
+		A330467ED81D6F9C283E9926 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FA32694C0DF62B35AB65E91 /* Pods-EasySettings.debug.xcconfig */,
+				9D4FAFCD07319BA77D8D6C00 /* Pods-EasySettings.release.xcconfig */,
+				BD868C2FC45C8F7998BEA00F /* Pods-EasySettingsTests.debug.xcconfig */,
+				2734F78D6EB94AAA18CC4874 /* Pods-EasySettingsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D0D7A13D246CCA77F248BE40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				234F4E776D6C019A8D55731F /* Pods_EasySettings.framework */,
+				CC26CE89B0BAC397F599EABA /* Pods_EasySettingsTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +419,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95F70A24216159D80034C5AD /* Build configuration list for PBXNativeTarget "EasySettings" */;
 			buildPhases = (
+				4CDDD3C0F2FE027F1A99568E /* [CP] Check Pods Manifest.lock */,
 				95F70A0B216159D80034C5AD /* Headers */,
 				95F70A0C216159D80034C5AD /* Sources */,
 				95F70A0D216159D80034C5AD /* Frameworks */,
@@ -122,9 +438,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95F70A27216159D80034C5AD /* Build configuration list for PBXNativeTarget "EasySettingsTests" */;
 			buildPhases = (
+				5B76CF1BFB3547FF7D81F5D2 /* [CP] Check Pods Manifest.lock */,
 				95F70A15216159D80034C5AD /* Sources */,
 				95F70A16216159D80034C5AD /* Frameworks */,
 				95F70A17216159D80034C5AD /* Resources */,
+				6ED053EB59B2BD8B16DE5C54 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,11 +507,139 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4CDDD3C0F2FE027F1A99568E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasySettings-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B76CF1BFB3547FF7D81F5D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasySettingsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6ED053EB59B2BD8B16DE5C54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasySettingsTests/Pods-EasySettingsTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AdvancedSegmentedControl/AdvancedSegmentedControl.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCell/SwipeCell.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImageColors/UIImageColors.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AdvancedSegmentedControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageColors.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasySettingsTests/Pods-EasySettingsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		95F70A0C216159D80034C5AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F70AE4216200110034C5AD /* SettingButtonModel.swift in Sources */,
+				95F70B86216232460034C5AD /* PaddingTextField.swift in Sources */,
+				95F70ACC216200110034C5AD /* SettingDuoColorFieldsCell.swift in Sources */,
+				95F70AC2216200110034C5AD /* SettingTextViewCell.swift in Sources */,
+				95F70AC8216200110034C5AD /* SettingSectionHeaderSection.swift in Sources */,
+				95F70AE5216200110034C5AD /* SettingButtonCell.swift in Sources */,
+				95F70AF2216200110034C5AD /* SettingSubMenuButtonSection.swift in Sources */,
+				95F70A2F21615A3C0034C5AD /* SettingsController.swift in Sources */,
+				95F70ACF216200110034C5AD /* SettingTextFieldGroupModel.swift in Sources */,
+				95F70AD4216200110034C5AD /* SettingSeparatorModel.swift in Sources */,
+				95F70AC3216200110034C5AD /* SettingTextViewModel.swift in Sources */,
+				95F70A8421615B840034C5AD /* BaseViewController.swift in Sources */,
+				95F70B8421622E0B0034C5AD /* UIColor+Extensions.swift in Sources */,
+				95F70ACD216200110034C5AD /* SettingDuoColorFieldsSection.swift in Sources */,
+				95F70AC6216200110034C5AD /* SettingSectionHeaderCell.swift in Sources */,
+				95F70AE1216200110034C5AD /* SettingSingleImageSection.swift in Sources */,
+				95F70ADA216200110034C5AD /* SettingTextFieldModel.swift in Sources */,
+				95F70AFA216200110034C5AD /* SettingBaseModel.swift in Sources */,
+				95F70AF0216200110034C5AD /* SettingSubMenuButtonModel.swift in Sources */,
+				95F70ACB216200110034C5AD /* SettingButtonGroupModel.swift in Sources */,
+				95F70AFB216200110034C5AD /* SettingBaseSection.swift in Sources */,
+				95F70AE9216200110034C5AD /* SettingSegmentedControlSection.swift in Sources */,
+				95F70AF1216200110034C5AD /* SettingSubMenuButtonCell.swift in Sources */,
+				95F70AEB216200110034C5AD /* SettingSwitchCell.swift in Sources */,
+				95F70AD7216200110034C5AD /* SettingHeadingModel.swift in Sources */,
+				95F70AD0216200110034C5AD /* SettingTextFieldGroupSection.swift in Sources */,
+				95F70AD5216200110034C5AD /* SettingSeparatorSection.swift in Sources */,
+				95F70AE2216200110034C5AD /* SettingSingleImageModel.swift in Sources */,
+				95F70AD8216200110034C5AD /* SettingHeadingCell.swift in Sources */,
+				95F70AE6216200110034C5AD /* SettingButtonSection.swift in Sources */,
+				95F70AD6216200110034C5AD /* SettingSeparatorCell.swift in Sources */,
+				95F70A2E21615A3C0034C5AD /* SettingsBaseClass.swift in Sources */,
+				95F70AC4216200110034C5AD /* SettingTextViewSection.swift in Sources */,
+				95F70ADC216200110034C5AD /* SettingTextFieldCell.swift in Sources */,
+				95F70AEA216200110034C5AD /* SettingSwitchSection.swift in Sources */,
+				95F70B88216233620034C5AD /* UITextField+Extensions.swift in Sources */,
+				95F70A2D21615A3C0034C5AD /* HiddenViewBaseClass.swift in Sources */,
+				95F70ACA216200110034C5AD /* SettingButtonGroupSection.swift in Sources */,
+				95F70ACE216200110034C5AD /* SettingDuoColorFieldsModel.swift in Sources */,
+				95F70AE0216200110034C5AD /* SettingNamespace.swift in Sources */,
+				95F70B2B2162167E0034C5AD /* SettingHeaderView.swift in Sources */,
+				95F70AF9216200110034C5AD /* SettingBaseGroupSection.swift in Sources */,
+				95F70ADB216200110034C5AD /* SettingTextFieldSection.swift in Sources */,
+				95F70AE8216200110034C5AD /* SettingSegmentedControlModel.swift in Sources */,
+				95F70AD9216200110034C5AD /* SettingHeadingSection.swift in Sources */,
+				95F70AE3216200110034C5AD /* SettingSingleImageCell.swift in Sources */,
+				95F70AEC216200110034C5AD /* SettingSwitchModel.swift in Sources */,
+				95F70AC9216200110034C5AD /* SettingSectionHeaderModel.swift in Sources */,
+				95F70AE7216200110034C5AD /* SettingSegmentedControlCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +786,7 @@
 		};
 		95F70A25216159D80034C5AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FA32694C0DF62B35AB65E91 /* Pods-EasySettings.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -365,6 +812,7 @@
 		};
 		95F70A26216159D80034C5AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D4FAFCD07319BA77D8D6C00 /* Pods-EasySettings.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -390,7 +838,9 @@
 		};
 		95F70A28216159D80034C5AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD868C2FC45C8F7998BEA00F /* Pods-EasySettingsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7F6BJZY5B3;
 				INFOPLIST_FILE = EasySettingsTests/Info.plist;
@@ -408,7 +858,9 @@
 		};
 		95F70A29216159D80034C5AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2734F78D6EB94AAA18CC4874 /* Pods-EasySettingsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7F6BJZY5B3;
 				INFOPLIST_FILE = EasySettingsTests/Info.plist;
