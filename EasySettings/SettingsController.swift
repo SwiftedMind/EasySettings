@@ -12,7 +12,7 @@ import CoreData
 import SwifterSwift
 
 extension SettingsPage {
-    open class Controller: UIViewController, UINavigationControllerDelegate {
+    open class Controller: UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
@@ -92,7 +92,7 @@ extension SettingsPage {
             pageController = UINavigationController(rootViewController: rootSettingsPage)
             pageController?.isNavigationBarHidden = true
             pageController?.delegate = self
-            //pageController?.interactivePopGestureRecognizer?.delegate = self
+            pageController?.interactivePopGestureRecognizer?.delegate = self
             pageController?.interactivePopGestureRecognizer?.isEnabled = true
             addChild(pageController!)
             pageController?.didMove(toParent: self)
@@ -174,7 +174,11 @@ extension SettingsPage {
             pageController?.popViewController(animated: true)
         }
         
-        private func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+            return true
+        }
+        
+        public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
             titleLabel.text = pageController?.topViewController?.title
             UIView.animate(withDuration: 0.2) {
                 if viewController == self.pageController!.viewControllers.first! {
