@@ -18,11 +18,11 @@ public enum SettingButtonType {
     public var color: UIColor {
         switch self {
         case .normal:
-            return Setting.defaultIntermediateBackground
+            return SettingsPage.defaultIntermediateBackground
         case .destructive:
-            return Setting.defaultDarkBackground
+            return SettingsPage.defaultDarkBackground
         case .bright:
-            return Setting.defaultLightText
+            return SettingsPage.defaultLightText
         case .custom:
             return .black
         }
@@ -33,7 +33,7 @@ public enum SettingButtonType {
         case .normal:
             return SettingButtonType.normal.color.readableTextColor
         case .destructive:
-            return Setting.defaultDangerColor
+            return SettingsPage.defaultDangerColor
         case .bright:
             return SettingButtonType.bright.color.readableTextColor
         case .custom:
@@ -59,7 +59,7 @@ extension Setting {
         public var text: String = "No Button Text"
         public var backgroundColor: UIColor = SettingButtonType.normal.color
         public var textColor: UIColor = SettingButtonType.normal.textColor
-        public var font: UIFont = Setting.defaultBoldFont.withSize(16)
+        public var font: UIFont = SettingsPage.defaultBoldFont.withSize(16)
         // ====================
         
         // MARK: - Initializers
@@ -89,7 +89,7 @@ extension Setting {
         public func setButtonType(to type: SettingButtonType) {
             backgroundColor = type.color
             textColor = type.textColor
-            font = Setting.defaultMediumFont.withSize(16)
+            font = SettingsPage.defaultMediumFont.withSize(16)
         }
         // ====================
         

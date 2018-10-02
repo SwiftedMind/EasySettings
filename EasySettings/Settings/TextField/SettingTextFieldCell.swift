@@ -31,8 +31,8 @@ extension Setting {
         private lazy var textField: PaddingTextField = {
             let textField = PaddingTextField()
             
-            textField.font = Setting.defaultFont.withSize(16)
-            textField.textColor = UIColor(hex: 0xeeeeee)
+            textField.font = SettingsPage.defaultFont.withSize(16)
+            textField.textColor = SettingsPage.defaultDarkText
             textField.textAlignment = .left
             textField.borderStyle = .none
             textField.returnKeyType = .done
@@ -40,7 +40,7 @@ extension Setting {
             textField.delegate = self
             textField.clearButtonMode = .always
             textField.tintColor = .white
-            textField.backgroundColor = Setting.defaultLightBackground
+            textField.backgroundColor = SettingsPage.defaultLightBackground
             
             holderView.addSubview(textField)
             
@@ -81,7 +81,7 @@ extension Setting {
             
             textField.text = listModel.text
             //textField.placeholder = listModel.placeholder
-            textField.attributedPlaceholder = NSAttributedString(string: listModel.placeholder, attributes: [NSAttributedString.Key.font: Setting.defaultFont.withSize(16), NSAttributedString.Key.foregroundColor: Setting.defaultDarkBackground])
+            textField.attributedPlaceholder = NSAttributedString(string: listModel.placeholder, attributes: [NSAttributedString.Key.font: SettingsPage.defaultFont.withSize(16), NSAttributedString.Key.foregroundColor: SettingsPage.defaultDarkBackground])
         }
         
         internal func textFieldDidBeginEditing(_ textField: UITextField) {

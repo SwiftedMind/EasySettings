@@ -67,7 +67,7 @@ extension Setting {
         private lazy var topLineView: UIView = {
             let view = UIView()
             
-            view.backgroundColor = Setting.defaultIntermediateBackground
+            view.backgroundColor = SettingsPage.defaultIntermediateBackground
             
             holderView.addSubview(view)
             return view
@@ -76,7 +76,7 @@ extension Setting {
         private lazy var bottomLineView: UIView = {
             let view = UIView()
             
-            view.backgroundColor = Setting.defaultLightBackground
+            view.backgroundColor = SettingsPage.defaultLightBackground
             
             holderView.addSubview(view)
             return view

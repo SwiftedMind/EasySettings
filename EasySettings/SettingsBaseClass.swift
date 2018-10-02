@@ -16,6 +16,9 @@ extension SettingsPage {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
+        /// The background color of the header view.
+        open var headerBackgroundColor: UIColor = UIColor(hexString: "#111111")!
+        
         private var _settingsHiddenViewClass: SettingsPage.HiddenViewBaseClass?
         private var settingsHiddenViewClass: SettingsPage.HiddenViewBaseClass {
             get {
@@ -105,14 +108,25 @@ extension SettingsPage {
         // ========== OVERRIDES ==========
         override open func viewDidLoad() {
             super.viewDidLoad()
-            view.backgroundColor = UIColor(hex: 0x444444)
+            view.backgroundColor = SettingsPage.defaultContentBackgroundColor
+            
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeButtonTapped))
+            pageController.navigationBar.titleTextAttributes = [.foregroundColor: headerBackgroundColor.darken(by: 0.1).readableTextColor]
+            pageController.navigationBar.tintColor = headerBackgroundColor.darken(by: 0.1).readableTextColor
+            pageController.navigationBar.barTintColor = headerBackgroundColor.darken(by: 0.1)
             
             listViewHolder.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview().offset(4)
-                make.top.equalToSuperview().offset(6) // dont use hiddenViewIndicator.snp.bottom. that breaks the system due to the constraints setup
-                make.trailing.equalToSuperview().offset(-4)
-                make.bottom.equalToSuperview().offset(-4)
                 
+                if #available(iOS 11.0, *) {
+                    make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(6)
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-4)
+                } else {
+                    make.top.equalToSuperview().offset(6)
+                    make.bottom.equalToSuperview().offset(-4)
+                }
+                
+                make.trailing.equalToSuperview().offset(-4)
             }
             
             collectionView.snp.makeConstraints { (make) in
@@ -121,7 +135,11 @@ extension SettingsPage {
             
             hiddenView.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview()
-                make.top.equalToSuperview()
+                if #available(iOS 11.0, *) {
+                    make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+                } else {
+                    make.top.equalToSuperview()
+                }
                 make.trailing.equalToSuperview()
                 self.hiddenViewConstraint = make.height.equalTo(0).constraint
             }
@@ -157,13 +175,17 @@ extension SettingsPage {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
+        @objc private func closeButtonTapped() {
+            settingsController.dismiss(animated: true, completion: nil)
+        }
+        
         @objc private func objectHasChanged(notif: Notification) {
             guard !self.isBeingDismissed else { return }
             adapter.performUpdates(animated: true, completion: nil)
             settingsHiddenViewClass.adapter.performUpdates(animated: true, completion: nil)
         }
         
-        @objc private func keyboardWillShow(notification: Notification) {
+        @objc public func keyboardWillShow(notification: Notification) {
             if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
                 guard traitCollection.horizontalSizeClass == .compact else { return }
                 
@@ -179,7 +201,7 @@ extension SettingsPage {
             }
         }
         
-        @objc private func keyboardWillHide(notification: Notification) {
+        @objc public func keyboardWillHide(notification: Notification) {
             guard traitCollection.horizontalSizeClass == .compact else { return }
             
             collectionView.snp.updateConstraints { (make) in
@@ -195,7 +217,7 @@ extension SettingsPage {
             self.listViewHolder.endEditing(true)
         }
         
-        private func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        public func scrollViewDidScroll(_ scrollView: UIScrollView) {
             guard hiddenViewFinalHeight > 0 else { return }
             if scrollView.contentOffset.y < 0 {
                 hiddenViewConstraint?.update(offset: abs(scrollView.contentOffset.y))
@@ -209,7 +231,7 @@ extension SettingsPage {
             
         }
         
-        private func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
             guard hiddenViewFinalHeight > 0 else { return }
             
             if scrollView.contentOffset.y <= -hiddenViewFinalHeight * 0.6 {
@@ -236,7 +258,7 @@ extension SettingsPage {
 }
 
 extension SettingsPage.BaseClass: ListAdapterDataSource {
-   public func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+   open func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         if listAdapter == adapter {
             return settings
         }

@@ -16,17 +16,23 @@ extension SettingsPage {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        public var rootSettingsPage: SettingsPage.BaseClass!
-        public var pageController: UINavigationController?
         
-        private lazy var topView: UIView = {
-            let view = UIView()
-            view.backgroundColor = UIColor(hex: 0x222222)
-            view.translatesAutoresizingMaskIntoConstraints = false
-            
-            self.view.addSubview(view)
-            return view
-        }()
+        /// The default status bar style (light or dark).
+        public var statusBarStyle: UIStatusBarStyle = .lightContent
+        
+        /// The text color of the text inside the header view.
+        open var headerTextColor: UIColor = UIColor(hexString: "#eeeeee")!
+        
+        /// The background color of the content.
+        /// This will be set as the backgroundColor of any subclasses of `SettingsPage.BaseClass`.
+        /// You can still set the background color there.
+        open var contentBackgroundColor: UIColor = UIColor(hexString: "#222222")!
+        
+        /// The root settings page.
+        public private(set) var rootSettingsPage: SettingsPage.BaseClass!
+        
+        /// The page controller that this class will set up. This property is accessible from within subclasses of `SettingsPage.BaseClass`.
+        public var pageController: UINavigationController?
         
         private lazy var contentView: UIView = {
             let view = UIView()
@@ -34,44 +40,6 @@ extension SettingsPage {
             
             self.view.addSubview(view)
             return view
-        }()
-        
-        private lazy var backButton: UIButton = {
-            let button = UIButton()
-            button.setImage(UIImage(named: "backArrow", in: Bundle(for: SettingsPage.Controller.self), compatibleWith: nil), for: UIControl.State.normal)
-            button.imageView?.contentMode = .scaleAspectFit
-            button.addTarget(self, action: #selector(backButtonTapped(_:)), for: UIControl.Event.touchUpInside)
-            
-            topView.addSubview(button)
-            return button
-        }()
-        
-        private lazy var closeButton: UIButton = {
-            let button = UIButton()
-            button.addTarget(self, action: #selector(closeButtonTapped(_:)), for: UIControl.Event.touchUpInside)
-            
-            topView.addSubview(button)
-            return button
-        }()
-        
-        private lazy var titleLabel: UILabel = {
-            let label = UILabel()
-            label.font = .boldSystemFont(ofSize: 18)
-            label.textColor = UIColor(hex: 0xeeeeee)
-            label.text = "Comic Book Settings"
-            
-            topView.addSubview(label)
-            return label
-        }()
-        
-        private lazy var subtitleLabel: UILabel = {
-            let label = UILabel()
-            label.font = .systemFont(ofSize: 10)
-            label.textColor = UIColor(hex: 0x888888)
-            label.text = "Tap to close"
-            
-            topView.addSubview(label)
-            return label
         }()
         // ====================
         
@@ -85,12 +53,15 @@ extension SettingsPage {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
+        open override var preferredStatusBarStyle: UIStatusBarStyle {
+            return SettingsPage.statusBarStyle
+        }
+        
         override open func viewDidLoad() {
             super.viewDidLoad()
-            view.backgroundColor = UIColor(hex: 0x222222)
+            view.backgroundColor = rootSettingsPage.headerBackgroundColor // this view will only be visible above the safeAreaLayoutGuides (and below, if visible)
             
             pageController = UINavigationController(rootViewController: rootSettingsPage)
-            pageController?.isNavigationBarHidden = true
             pageController?.delegate = self
             pageController?.interactivePopGestureRecognizer?.delegate = self
             pageController?.interactivePopGestureRecognizer?.isEnabled = true
@@ -98,95 +69,31 @@ extension SettingsPage {
             pageController?.didMove(toParent: self)
             
             contentView.addSubview(pageController!.view)
-            pageController!.view.snp.makeConstraints { (make) in
-                make.edges.equalToSuperview()
-            }
             
-            topView.snp.makeConstraints { (make) in
-                make.leading.equalToSuperview()
-                if #available(iOS 11.0, *) {
-                    make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-                } else {
-                    make.top.equalToSuperview()
-                }
-                
-                make.trailing.equalToSuperview()
-                make.height.equalTo(40)
+            pageController?.view.backgroundColor = contentBackgroundColor
+            pageController?.view.snp.makeConstraints { (make) in
+                make.edges.equalToSuperview()
             }
             
             contentView.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview()
-                make.top.equalTo(self.topView.snp.bottom)
-                make.trailing.equalToSuperview()
-                make.bottom.equalToSuperview()
-            }
-            
-            titleLabel.snp.makeConstraints { (make) in
-                make.centerX.equalToSuperview()
-                if #available(iOS 11.0, *) {
-                    make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-                } else {
-                    make.top.equalToSuperview()
-                }
-                make.height.equalTo(35)
-            }
-            
-            subtitleLabel.snp.makeConstraints { (make) in
-                make.centerX.equalToSuperview()
-                make.bottom.equalToSuperview().offset(-1)
-                make.height.equalTo(15)
-            }
-            
-            backButton.snp.makeConstraints { (make) in
-                make.leading.equalToSuperview()
-                make.width.equalTo(60)
-                if #available(iOS 11.0, *) {
-                    make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-                } else {
-                    make.top.equalToSuperview()
-                }
-                make.bottom.equalToSuperview()
-            }
-            
-            backButton.transform = CGAffineTransform(translationX: -60, y: 0)
-            
-            closeButton.snp.makeConstraints { (make) in
-                make.leading.equalTo(self.backButton.snp.trailing)
-                make.trailing.equalToSuperview()
                 make.top.equalToSuperview()
+                make.trailing.equalToSuperview()
                 make.bottom.equalToSuperview()
             }
         }
         
         override open var prefersStatusBarHidden: Bool {
-            return true
+            return false
         }
         // ====================
         
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        @objc private func closeButtonTapped(_ sender: UIButton) {
-            dismiss(animated: true, completion: nil)
-        }
-        
-        @objc private func backButtonTapped(_ sender: UIButton) {
-            pageController?.popViewController(animated: true)
-        }
         
         public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
             return true
-        }
-        
-        public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-            titleLabel.text = pageController?.topViewController?.title
-            UIView.animate(withDuration: 0.2) {
-                if viewController == self.pageController!.viewControllers.first! {
-                    self.backButton.transform = CGAffineTransform(translationX: -60, y: 0)
-                } else {
-                    self.backButton.transform = .identity
-                }
-            }
         }
         // ====================
         

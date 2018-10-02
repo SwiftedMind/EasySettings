@@ -30,7 +30,7 @@ extension Setting {
         
         private lazy var segmentedControl: AdvancedSegmentedControl = {
             let control = AdvancedSegmentedControl()
-            control.tintColor = Setting.defaultLightText
+            control.tintColor = SettingsPage.defaultLightText
             control.addTarget(self, action: #selector(segmentDidChange(_:)), for: .valueChanged)
             
             holderView.addSubview(control)
