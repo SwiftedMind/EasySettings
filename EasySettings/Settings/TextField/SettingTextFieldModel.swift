@@ -21,13 +21,16 @@ extension Setting {
         // ========== PROPERTIES ==========
         public var text: String = ""
         public var placeholder: String = ""
+        public var backgroundColor: UIColor = SettingsPage.Style.defaultIntermediateBackground
+        public var font: UIFont = SettingsPage.Style.defaultFont // dont check for isEqual. not important
+        public var textColor: UIColor = SettingsPage.Style.defaultLightText
         // ====================
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
         required public init(_ id: String) {
             super.init(id)
-            height = 40
+            height = 50
         }
         // ====================
         
@@ -39,7 +42,7 @@ extension Setting {
         
         override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.TextFieldModel, super.isEqual(toDiffableObject: object) else { return false }
-            return self.text == object.text && self.placeholder == object.placeholder
+            return self.text == object.text && self.placeholder == object.placeholder && self.backgroundColor == object.backgroundColor && self.textColor == object.textColor
         }
         // ====================
         

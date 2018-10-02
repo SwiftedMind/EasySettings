@@ -16,18 +16,6 @@ extension SettingsPage {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        
-        /// The default status bar style (light or dark).
-        public var statusBarStyle: UIStatusBarStyle = .lightContent
-        
-        /// The text color of the text inside the header view.
-        open var headerTextColor: UIColor = UIColor(hexString: "#eeeeee")!
-        
-        /// The background color of the content.
-        /// This will be set as the backgroundColor of any subclasses of `SettingsPage.BaseClass`.
-        /// You can still set the background color there.
-        open var contentBackgroundColor: UIColor = UIColor(hexString: "#222222")!
-        
         /// The root settings page.
         public private(set) var rootSettingsPage: SettingsPage.BaseClass!
         
@@ -54,12 +42,12 @@ extension SettingsPage {
         // MARK: - Overrides
         // ========== OVERRIDES ==========
         open override var preferredStatusBarStyle: UIStatusBarStyle {
-            return SettingsPage.statusBarStyle
+            return SettingsPage.Style.statusBarStyle
         }
         
         override open func viewDidLoad() {
             super.viewDidLoad()
-            view.backgroundColor = rootSettingsPage.headerBackgroundColor // this view will only be visible above the safeAreaLayoutGuides (and below, if visible)
+            view.backgroundColor = SettingsPage.Style.defaultHeaderBackgroundColor // this view will only be visible above the safeAreaLayoutGuides (and below, if visible)
             
             pageController = UINavigationController(rootViewController: rootSettingsPage)
             pageController?.delegate = self
@@ -70,7 +58,7 @@ extension SettingsPage {
             
             contentView.addSubview(pageController!.view)
             
-            pageController?.view.backgroundColor = contentBackgroundColor
+            pageController?.view.backgroundColor = SettingsPage.Style.defaultContentBackgroundColor
             pageController?.view.snp.makeConstraints { (make) in
                 make.edges.equalToSuperview()
             }

@@ -15,10 +15,7 @@ extension SettingsPage {
     open class BaseClass: UIViewController, UIScrollViewDelegate {
         
         // MARK: - Properties
-        // ========== PROPERTIES ==========
-        /// The background color of the header view.
-        open var headerBackgroundColor: UIColor = UIColor(hexString: "#111111")!
-        
+        // ========== PROPERTIES ==========        
         private var _settingsHiddenViewClass: SettingsPage.HiddenViewBaseClass?
         private var settingsHiddenViewClass: SettingsPage.HiddenViewBaseClass {
             get {
@@ -108,12 +105,12 @@ extension SettingsPage {
         // ========== OVERRIDES ==========
         override open func viewDidLoad() {
             super.viewDidLoad()
-            view.backgroundColor = SettingsPage.defaultContentBackgroundColor
+            view.backgroundColor = SettingsPage.Style.defaultContentBackgroundColor
             
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeButtonTapped))
-            pageController.navigationBar.titleTextAttributes = [.foregroundColor: headerBackgroundColor.darken(by: 0.1).readableTextColor]
-            pageController.navigationBar.tintColor = headerBackgroundColor.darken(by: 0.1).readableTextColor
-            pageController.navigationBar.barTintColor = headerBackgroundColor.darken(by: 0.1)
+            pageController.navigationBar.titleTextAttributes = [.foregroundColor: SettingsPage.Style.defaultHeaderBackgroundColor.darken(by: 0.1).readableTextColor]
+            pageController.navigationBar.tintColor = SettingsPage.Style.defaultHeaderBackgroundColor.darken(by: 0.1).readableTextColor
+            pageController.navigationBar.barTintColor = SettingsPage.Style.defaultHeaderBackgroundColor.darken(by: 0.1)
             
             listViewHolder.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview().offset(4)

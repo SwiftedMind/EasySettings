@@ -51,7 +51,7 @@ extension Setting {
             let button = UIButton()
             
             button.isUserInteractionEnabled = false
-            button.setTitleColor(SettingsPage.defaultLightText, for: UIControl.State.normal)
+            button.setTitleColor(SettingsPage.Style.defaultLightText, for: UIControl.State.normal)
             
             holderView.addSubview(button)
             return button

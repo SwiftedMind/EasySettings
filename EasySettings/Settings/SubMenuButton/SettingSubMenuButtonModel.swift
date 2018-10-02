@@ -24,9 +24,9 @@ extension Setting {
         // MARK: - Properties
         // ========== PROPERTIES ==========
         public var text: String = "No Button Text"
-        public var backgroundColor: UIColor = SettingsPage.defaultLightBackground
+        public var backgroundColor: UIColor = SettingsPage.Style.defaultLightBackground
         public var textColor: UIColor = UIColor(hex: 0xeeeeee)!
-        public var font: UIFont = SettingsPage.defaultBoldFont.withSize(16)
+        public var font: UIFont = SettingsPage.Style.defaultBoldFont.withSize(16)
         // ====================
         
         // MARK: - Initializers
@@ -57,7 +57,7 @@ extension Setting {
         public func setButtonType(to type: SettingButtonType) {
             backgroundColor = type.color
             textColor = type.textColor
-            font = SettingsPage.defaultMediumFont.withSize(16)
+            font = SettingsPage.Style.defaultMediumFont.withSize(16)
         }
         // ====================
         

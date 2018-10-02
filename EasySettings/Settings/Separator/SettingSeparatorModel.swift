@@ -18,7 +18,7 @@ extension Setting {
     public class SeparatorModel: Setting.BaseModel {
         
         
-        public var color: UIColor = SettingsPage.defaultDarkBackground
+        public var color: UIColor = SettingsPage.Style.defaultDarkBackground
         public var alpha: CGFloat = 0.1
         // ====================
         

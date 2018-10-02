@@ -29,7 +29,7 @@ extension Setting {
         
         private lazy var label: UILabel = {
             let label = UILabel()
-            label.font = SettingsPage.defaultFont.withSize(15)
+            label.font = SettingsPage.Style.defaultFont.withSize(15)
             label.textColor = UIColor(hex: 0xeeeeee)
             label.text = "Tap to add image"
             label.textAlignment = .center

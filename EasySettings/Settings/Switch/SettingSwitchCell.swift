@@ -38,7 +38,7 @@ extension Setting {
         private lazy var checkbox: UISwitch = {
             let box = UISwitch()
             
-            box.onTintColor = SettingsPage.defaultLightText
+            box.onTintColor = SettingsPage.Style.defaultLightText
             box.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
             
             holderView.addSubview(box)

@@ -29,7 +29,7 @@ extension Setting {
         
         internal lazy var label: UILabel = {
             let label = UILabel()
-            label.font = SettingsPage.defaultBoldFont.withSize(24)
+            label.font = SettingsPage.Style.defaultBoldFont.withSize(24)
             label.minimumScaleFactor = 0.6
             label.textColor = UIColor(hex: 0xeeeeee)
             

@@ -74,23 +74,5 @@ public struct Setting {}
 
 /// Namespace for the settings pages.
 public struct SettingsPage {
-    
-    public static var statusBarStyle: UIStatusBarStyle = .lightContent
-    
-    public static var defaultFont: UIFont = .systemFont(ofSize: 16)
-    public static var defaultMediumFont: UIFont = .systemFont(ofSize: 16)
-    public static var defaultBoldFont: UIFont = .boldSystemFont(ofSize: 16)
-    
-    public static var defaultLightBackground: UIColor = UIColor(hexString: "#eeeeee")!
-    public static var defaultIntermediateBackground: UIColor = UIColor(hexString: "#888888")!
-    public static var defaultDarkBackground: UIColor = UIColor(hexString: "#222222")!
-    
-    public static var defaultHeaderBackgroundColor: UIColor = UIColor(hexString: "#111111")!
-    public static var defaultContentBackgroundColor: UIColor = UIColor(hexString: "#222222")!
-    
-    public static var defaultLightText: UIColor = SettingsPage.defaultLightBackground
-    public static var defaultDarkText: UIColor = SettingsPage.defaultDarkBackground
-    
-    public static var defaultDangerColor: UIColor = UIColor.red
-    
+        
 }

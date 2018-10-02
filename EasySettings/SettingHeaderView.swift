@@ -32,8 +32,8 @@ extension Setting {
         lazy var titleLabel: UILabel = {
             let label = UILabel()
             
-            label.font = SettingsPage.defaultFont.withSize(15)
-            label.textColor = SettingsPage.defaultDarkText.lighten()
+            label.font = SettingsPage.Style.defaultFont.withSize(15)
+            label.textColor = SettingsPage.Style.defaultDarkText.lighten()
             label.textAlignment = .center
             
             addSubview(label)

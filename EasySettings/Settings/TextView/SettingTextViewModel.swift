@@ -20,10 +20,10 @@ extension Setting {
         // MARK: - Properties
         // ========== PROPERTIES ==========
         public var text: String = ""
-        public var font: UIFont = SettingsPage.defaultFont.withSize(18)
-        public var textColor: UIColor = SettingsPage.defaultLightText
+        public var font: UIFont = SettingsPage.Style.defaultFont.withSize(18)
+        public var textColor: UIColor = SettingsPage.Style.defaultLightText
         public var textAlignment: NSTextAlignment = .left
-        public var backgroundColor: UIColor = SettingsPage.defaultLightBackground
+        public var backgroundColor: UIColor = SettingsPage.Style.defaultLightBackground
         public var isScrollEnabled: Bool = true
         public var isEditable: Bool = false
         public var centerVertically: Bool = false
