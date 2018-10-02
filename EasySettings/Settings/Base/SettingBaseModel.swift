@@ -1,5 +1,5 @@
 //
-//  Setting.BaseModel.swift
+//  SettingExtension.swift
 //  Comic_Collector
 //
 //  Created by Dennis Müller on 13.04.18.
@@ -12,8 +12,8 @@ import SwipeCell
 
 extension Setting {
     
-    /// The base model for every settings model.
-    open class BaseModel: NSObject, ListDiffable {
+    /// The base model for every settings model. To create your own setting, use the `SettingExtension` protocol`.
+    public class BaseModel: SettingExtension {
         
         /// Normally, the listAdapter's ViewController will be used as delegate. This can override that.
         /// Keep in mind: If the delegateOverride doesn't conform to the correct protocol, a delegate cannot be set.
@@ -39,7 +39,7 @@ extension Setting {
         
         
         /// The identifier of the setting.
-        public let id: String
+        public var id: String
         
         public var relativeWidth: CGFloat = 1.0
         
@@ -58,7 +58,7 @@ extension Setting {
         /// Public initializer.
         ///
         /// - Parameter id: The is of the setting
-        public init(_ id: String) {
+        required public init(_ id: String) {
             self.id = id
         }
         
@@ -67,7 +67,7 @@ extension Setting {
         }
         
         public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
-            guard let object = object as? Setting.BaseModel else { return false }
+            guard let object = object as? SettingExtension else { return false }
             
             return self.id == object.id && self.height == object.height && self.inset == object.inset && self.headerTitle == object.headerTitle
         }

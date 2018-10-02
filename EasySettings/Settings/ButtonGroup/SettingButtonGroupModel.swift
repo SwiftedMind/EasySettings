@@ -26,7 +26,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override public init(_ id: String) {
+        required public init(_ id: String) {
             super.init(id)
             height = 45
         }
@@ -34,7 +34,7 @@ extension Setting {
         
         // MARK: - Overrides
         // ========== OVERRIDES ==========
-        override open var sectionController: ListSectionController {
+        override public var sectionController: ListSectionController {
             let section = Setting.ButtonGroupSection()
             section.inset = inset
             

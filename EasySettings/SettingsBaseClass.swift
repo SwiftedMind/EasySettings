@@ -40,7 +40,7 @@ extension SettingsPage {
             return pageController.parent as! SettingsPage.Controller
         }
         
-        open var settings: [Setting.BaseModel] {
+        open var settings: [SettingExtension] {
             return []
         }
         
@@ -51,7 +51,7 @@ extension SettingsPage {
             return view
         }()
         
-        lazy var collectionView: UICollectionView = {
+        private lazy var collectionView: UICollectionView = {
             let layout = ListCollectionViewLayout(stickyHeaders: false, topContentInset: 0, stretchToEdge: true)
             let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
             view.backgroundColor = .clear
@@ -75,7 +75,7 @@ extension SettingsPage {
         public var hiddenViewSnappedOpen: Bool = false
         private var hiddenViewConstraint: Constraint?
         
-        lazy var hiddenView: UIView = {
+        private lazy var hiddenView: UIView = {
             let view = UIView()
             view.backgroundColor = UIColor(hex: 0x333333)
             view.clipsToBounds = true
@@ -267,7 +267,7 @@ extension SettingsPage.BaseClass: ListAdapterDataSource {
     }
     
    public func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        guard let object = object as? Setting.BaseModel else { fatalError() }
+        guard let object = object as? SettingExtension else { fatalError() }
         let sectionController = object.sectionController
     
         return sectionController

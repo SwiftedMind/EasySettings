@@ -15,7 +15,7 @@ import SwipeCell
 public protocol SettingExtension: class, ListDiffable {
     
     /// The identifier of the setting.
-    var id: Int { get set }
+    var id: String { get set }
     
     /// A delegate override for the setting.
     /// Normally, the listAdapter's ViewController will be used as delegate. This can override that.
@@ -45,34 +45,34 @@ public protocol SettingExtension: class, ListDiffable {
     var headerHeight: CGFloat { get set }
     
     /// The section controller that should be responsible for this setting
-    var section: Setting.BaseSection { get }
+    var sectionController: ListSectionController { get }
     
     /// Public initializer.
     ///
     /// - Parameter id: The is of the setting
-    init(_ id: Int)
+    init(_ id: String)
 }
 
 extension SettingExtension {
-    var heightSum: CGFloat {
+    
+    public func diffIdentifier() -> NSObjectProtocol {
+        return id as NSObjectProtocol
+    }
+    
+    public var heightSum: CGFloat {
         var size: CGFloat = height + inset.top + inset.bottom
         size += headerTitle != "" ? headerHeight : 0
         return size
     }
-}
-
-public protocol SettingGroupExtension: class {
-    var cell: UICollectionViewCell.Type { get }
-    var section: Setting.BaseSection.Type { get }
-}
-
-public struct Setting {
-    
     
 }
 
+/// Namespace for all the settings. You can (though you don't have to) extend this when adding your own custom settings.
+public struct Setting {}
 
 
+
+/// Namespace for the settings pages.
 public struct SettingsPage {
     
     public static var statusBarStyle: UIStatusBarStyle = .lightContent

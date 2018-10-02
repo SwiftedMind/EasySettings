@@ -12,16 +12,17 @@ import IGListKit
 import SwipeCell
 
 public protocol SettingSwipeCellItemsSupport: class {
-    func didTap(onItem item: SwipeCell.Item, ofSetting setting: Setting.BaseModel)
+    func didTap(onItem item: SwipeCell.Item, ofSetting setting: SettingExtension)
 }
 
 extension Setting {
+    /// Base list section controller. Can be subclassed to avoid most of the boilerplate
     open class BaseSection: ListSectionController, SwipeCellItemDelegate, ListSupplementaryViewSource {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========        
         public weak var itemDelegate: SettingSwipeCellItemsSupport?
-        public var model: Setting.BaseModel!
+        public var model: SettingExtension!
         // ====================
         
         // MARK: - Initializers
@@ -41,7 +42,7 @@ extension Setting {
         }
         
         override open func didUpdate(to object: Any) {
-            guard let object = object as? Setting.BaseModel else { return }
+            guard let object = object as? SettingExtension else { return }
             self.model = object
             inset = object.inset
             itemDelegate = (model.delegateOverride ?? viewController) as? SettingSwipeCellItemsSupport

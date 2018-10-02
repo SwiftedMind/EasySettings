@@ -16,7 +16,7 @@ extension Setting {
         // MARK: - Properties
         // ========== PROPERTIES ==========
         public weak var itemDelegate: SettingSwipeCellItemsSupport?
-        public var model: Setting.BaseModel!
+        public var model: SettingExtension!
         // ====================
         
         // MARK: - Initializers

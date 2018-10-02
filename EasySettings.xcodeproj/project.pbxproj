@@ -206,6 +206,7 @@
 		95F70A3021615B4A0034C5AD /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				95F70A5921615B4A0034C5AD /* SettingNamespace.swift */,
 				95F70A3121615B4A0034C5AD /* TextView */,
 				95F70A3521615B4A0034C5AD /* SectionHeader */,
 				95F70A3B21615B4A0034C5AD /* ButtonGroup */,
@@ -214,7 +215,6 @@
 				95F70A4921615B4A0034C5AD /* Separator */,
 				95F70A4D21615B4A0034C5AD /* Heading */,
 				95F70A5121615B4A0034C5AD /* TextField */,
-				95F70A5921615B4A0034C5AD /* SettingNamespace.swift */,
 				95F70A5A21615B4A0034C5AD /* SingleImage */,
 				95F70A5E21615B4A0034C5AD /* HorizontalList */,
 				95F70A5F21615B4A0034C5AD /* Button */,
@@ -240,8 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				95F70A3721615B4A0034C5AD /* SettingSectionHeaderCell.swift */,
-				95F70A3921615B4A0034C5AD /* SettingSectionHeaderSection.swift */,
 				95F70A3A21615B4A0034C5AD /* SettingSectionHeaderModel.swift */,
+				95F70A3921615B4A0034C5AD /* SettingSectionHeaderSection.swift */,
 			);
 			path = SectionHeader;
 			sourceTree = "<group>";
@@ -259,8 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				95F70A3F21615B4A0034C5AD /* SettingDuoColorFieldsCell.swift */,
-				95F70A4021615B4A0034C5AD /* SettingDuoColorFieldsSection.swift */,
 				95F70A4121615B4A0034C5AD /* SettingDuoColorFieldsModel.swift */,
+				95F70A4021615B4A0034C5AD /* SettingDuoColorFieldsSection.swift */,
 			);
 			path = DuoColorFields;
 			sourceTree = "<group>";
@@ -277,9 +277,9 @@
 		95F70A4921615B4A0034C5AD /* Separator */ = {
 			isa = PBXGroup;
 			children = (
+				95F70A4C21615B4A0034C5AD /* SettingSeparatorCell.swift */,
 				95F70A4A21615B4A0034C5AD /* SettingSeparatorModel.swift */,
 				95F70A4B21615B4A0034C5AD /* SettingSeparatorSection.swift */,
-				95F70A4C21615B4A0034C5AD /* SettingSeparatorCell.swift */,
 			);
 			path = Separator;
 			sourceTree = "<group>";
@@ -287,8 +287,8 @@
 		95F70A4D21615B4A0034C5AD /* Heading */ = {
 			isa = PBXGroup;
 			children = (
-				95F70A4E21615B4A0034C5AD /* SettingHeadingModel.swift */,
 				95F70A4F21615B4A0034C5AD /* SettingHeadingCell.swift */,
+				95F70A4E21615B4A0034C5AD /* SettingHeadingModel.swift */,
 				95F70A5021615B4A0034C5AD /* SettingHeadingSection.swift */,
 			);
 			path = Heading;
@@ -297,9 +297,9 @@
 		95F70A5121615B4A0034C5AD /* TextField */ = {
 			isa = PBXGroup;
 			children = (
+				95F70A5421615B4A0034C5AD /* SettingTextFieldCell.swift */,
 				95F70A5221615B4A0034C5AD /* SettingTextFieldModel.swift */,
 				95F70A5321615B4A0034C5AD /* SettingTextFieldSection.swift */,
-				95F70A5421615B4A0034C5AD /* SettingTextFieldCell.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -324,8 +324,8 @@
 		95F70A5F21615B4A0034C5AD /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				95F70A6021615B4A0034C5AD /* SettingButtonModel.swift */,
 				95F70A6121615B4A0034C5AD /* SettingButtonCell.swift */,
+				95F70A6021615B4A0034C5AD /* SettingButtonModel.swift */,
 				95F70A6221615B4A0034C5AD /* SettingButtonSection.swift */,
 			);
 			path = Button;
@@ -344,9 +344,9 @@
 		95F70A6721615B4A0034C5AD /* Switch */ = {
 			isa = PBXGroup;
 			children = (
-				95F70A6821615B4A0034C5AD /* SettingSwitchSection.swift */,
 				95F70A6921615B4A0034C5AD /* SettingSwitchCell.swift */,
 				95F70A6A21615B4A0034C5AD /* SettingSwitchModel.swift */,
+				95F70A6821615B4A0034C5AD /* SettingSwitchSection.swift */,
 			);
 			path = Switch;
 			sourceTree = "<group>";
@@ -354,8 +354,8 @@
 		95F70A6F21615B4A0034C5AD /* SubMenuButton */ = {
 			isa = PBXGroup;
 			children = (
-				95F70A7021615B4A0034C5AD /* SettingSubMenuButtonModel.swift */,
 				95F70A7121615B4A0034C5AD /* SettingSubMenuButtonCell.swift */,
+				95F70A7021615B4A0034C5AD /* SettingSubMenuButtonModel.swift */,
 				95F70A7221615B4A0034C5AD /* SettingSubMenuButtonSection.swift */,
 			);
 			path = SubMenuButton;

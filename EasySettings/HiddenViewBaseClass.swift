@@ -14,7 +14,7 @@ extension SettingsPage {
         
         // MARK: - Properties
         // ========== PROPERTIES ==========
-        open var hiddenSettings: [Setting.BaseModel] {
+        open var hiddenSettings: [SettingExtension] {
             return []
         }
         
@@ -77,7 +77,7 @@ extension SettingsPage {
         }
         
         public func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-            guard let object = object as? Setting.BaseModel else { fatalError() }
+            guard let object = object as? SettingExtension else { fatalError() }
             return object.sectionController
         }
         

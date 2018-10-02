@@ -24,7 +24,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override public init(_ id: String) {
+        required public init(_ id: String) {
             super.init(id)
             height = 50
         }
