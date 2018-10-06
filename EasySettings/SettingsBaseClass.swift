@@ -1,5 +1,5 @@
 //
-//  SettingsBaseClass.swift
+//  SettingsPage.BaseClass.swift
 //  Comic_Collector
 //
 //  Created by Dennis Müller on 14.04.18.
@@ -33,7 +33,7 @@ extension SettingsPage {
             return navigationController!
         }
         
-        private var settingsController: SettingsPage.Controller {
+        public var settingsController: SettingsPage.Controller {
             return pageController.parent as! SettingsPage.Controller
         }
         
@@ -41,14 +41,14 @@ extension SettingsPage {
             return []
         }
         
-        private lazy var listViewHolder: UIView = {
+        public lazy var listViewHolder: UIView = {
             let view = UIView()
             
             self.view.addSubview(view)
             return view
         }()
         
-        private lazy var collectionView: UICollectionView = {
+        public lazy var collectionView: UICollectionView = {
             let layout = ListCollectionViewLayout(stickyHeaders: false, topContentInset: 0, stretchToEdge: true)
             let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
             view.backgroundColor = .clear
@@ -61,7 +61,7 @@ extension SettingsPage {
             return view
         }()
         
-        lazy var adapter: ListAdapter = {
+        public lazy var adapter: ListAdapter = {
             return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
         }()
         
@@ -111,6 +111,8 @@ extension SettingsPage {
             pageController.navigationBar.titleTextAttributes = [.foregroundColor: SettingsPage.Style.defaultHeaderBackgroundColor.darken(by: 0.1).readableTextColor]
             pageController.navigationBar.tintColor = SettingsPage.Style.defaultHeaderBackgroundColor.darken(by: 0.1).readableTextColor
             pageController.navigationBar.barTintColor = SettingsPage.Style.defaultHeaderBackgroundColor.darken(by: 0.1)
+            pageController.navigationBar.backgroundColor = SettingsPage.Style.defaultHeaderBackgroundColor
+            pageController.navigationBar.barStyle = .black
             
             listViewHolder.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview().offset(4)

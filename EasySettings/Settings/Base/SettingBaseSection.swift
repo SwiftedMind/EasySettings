@@ -27,7 +27,7 @@ extension Setting {
         
         // MARK: - Initializers
         // ========== INITIALIZERS ==========
-        override init() {
+        override public init() {
             super.init()
             //inset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
             supplementaryViewSource = self

@@ -49,6 +49,8 @@ extension SettingsPage {
             super.viewDidLoad()
             view.backgroundColor = SettingsPage.Style.defaultHeaderBackgroundColor // this view will only be visible above the safeAreaLayoutGuides (and below, if visible)
             
+            pageController?.navigationBar.barStyle = .black
+            pageController?.navigationBar.backgroundColor = SettingsPage.Style.defaultHeaderBackgroundColor
             pageController = UINavigationController(rootViewController: rootSettingsPage)
             pageController?.delegate = self
             pageController?.interactivePopGestureRecognizer?.delegate = self

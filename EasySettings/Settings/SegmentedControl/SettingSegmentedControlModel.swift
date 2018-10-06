@@ -21,7 +21,7 @@ extension Setting {
         // ========== PROPERTIES ==========
         public var segments: [String] = []
         public var activeSegment: Int = 0
-        public var segmentsWidth: CGFloat = 80
+        public var segmentsWidth: CGFloat = 100
         public var reloadUIOnChange: Bool = false
         // ====================
         

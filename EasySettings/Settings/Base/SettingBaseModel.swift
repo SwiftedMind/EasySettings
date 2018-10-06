@@ -13,7 +13,7 @@ import SwipeCell
 extension Setting {
     
     /// The base model for every settings model. To create your own setting, use the `SettingExtension` protocol`.
-    public class BaseModel: SettingExtension {
+    open class BaseModel: SettingExtension {
         
         /// Normally, the listAdapter's ViewController will be used as delegate. This can override that.
         /// Keep in mind: If the delegateOverride doesn't conform to the correct protocol, a delegate cannot be set.
@@ -62,11 +62,11 @@ extension Setting {
             self.id = id
         }
         
-        public func diffIdentifier() -> NSObjectProtocol {
+        open func diffIdentifier() -> NSObjectProtocol {
             return id as NSObjectProtocol
         }
         
-        public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        open func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? SettingExtension else { return false }
             
             return self.id == object.id && self.height == object.height && self.inset == object.inset && self.headerTitle == object.headerTitle

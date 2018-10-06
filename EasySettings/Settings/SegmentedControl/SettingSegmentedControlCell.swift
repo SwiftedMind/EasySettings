@@ -32,6 +32,7 @@ extension Setting {
             let control = AdvancedSegmentedControl()
             control.tintColor = SettingsPage.Style.defaultLightText
             control.addTarget(self, action: #selector(segmentDidChange(_:)), for: .valueChanged)
+            control.stretchSegmentsIfPossible = true
             
             holderView.addSubview(control)
             return control
@@ -76,7 +77,7 @@ extension Setting {
             configure(withListModel: viewModel)
         }
         
-        @objc private func segmentDidChange(_ sender: UISegmentedControl) {
+        @objc public func segmentDidChange(_ sender: UISegmentedControl) {
             delegate?.segmentedControlDidchange(toNewIndex: segmentedControl.selectedSegmentIndex)
         }
         // ====================

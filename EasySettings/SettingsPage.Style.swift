@@ -35,5 +35,6 @@ extension SettingsPage {
         public static var defaultDarkText: UIColor = SettingsPage.Style.defaultDarkBackground
         
         public static var defaultDangerColor: UIColor = UIColor.red
+        
     }
 }

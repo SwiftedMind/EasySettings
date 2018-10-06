@@ -34,7 +34,6 @@ extension Setting {
         required public init(_ id: String) {
             super.init(id)
             height = 50
-            setButtonType(to: .normal)
         }
         // ====================
         
@@ -54,11 +53,6 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        public func setButtonType(to type: SettingButtonType) {
-            backgroundColor = type.color
-            textColor = type.textColor
-            font = SettingsPage.Style.defaultMediumFont.withSize(16)
-        }
         // ====================
         
     }

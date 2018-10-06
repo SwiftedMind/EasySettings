@@ -205,7 +205,7 @@ open class AdvancedSegmentedControl: UIControl, UICollectionViewDelegate, UIColl
         segments[index].width = width
     }
     
-    private func numberOfSections(in collectionView: UICollectionView) -> Int {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
@@ -226,7 +226,7 @@ open class AdvancedSegmentedControl: UIControl, UICollectionViewDelegate, UIColl
         return cell
     }
     
-    private func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var width: CGFloat = segments[indexPath.item].width
         
         let itemCount = CGFloat(segments.count)
@@ -239,12 +239,12 @@ open class AdvancedSegmentedControl: UIControl, UICollectionViewDelegate, UIColl
         return CGSize(width: width, height: bounds.height)
     }
     
-    private func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedSegmentIndex = indexPath.item
         sendActions(for: .valueChanged)
     }
     
-    private func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         // calculate the contentOffset so that the preselected item is in the middle (if possible)
         if collectionViewShownForTheFirstTime && selectedSegmentIndex > 0 {
@@ -261,12 +261,12 @@ open class AdvancedSegmentedControl: UIControl, UICollectionViewDelegate, UIColl
         }
     }
     
-    private func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return segmentSpacing
     }
     
     
-    private func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return segmentSpacing
     }
     // ====================

@@ -32,7 +32,7 @@ extension Setting {
         lazy var titleLabel: UILabel = {
             let label = UILabel()
             
-            label.font = SettingsPage.Style.defaultFont.withSize(15)
+            label.font = SettingsPage.Style.defaultFont.withSize(14)
             label.textColor = SettingsPage.Style.defaultDarkText.lighten()
             label.textAlignment = .center
             

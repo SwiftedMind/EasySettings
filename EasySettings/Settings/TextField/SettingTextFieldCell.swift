@@ -80,8 +80,9 @@ extension Setting {
             textField.font = listModel.font
             textField.textColor = listModel.textColor
             textField.backgroundColor = listModel.backgroundColor
+            textField.keyboardType = listModel.keyboardType
             
-            textField.attributedPlaceholder = NSAttributedString(string: listModel.placeholder, attributes: [NSAttributedString.Key.font: listModel.font, NSAttributedString.Key.foregroundColor: listModel.textColor.withAlphaComponent(0.7)])
+            textField.attributedPlaceholder = NSAttributedString(string: listModel.placeholder, attributes: [NSAttributedString.Key.font: listModel.font, NSAttributedString.Key.foregroundColor: listModel.placeholderTextColor])
         }
         
         internal func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -9,39 +9,6 @@
 import UIKit
 import IGListKit
 
-public enum SettingButtonType {
-    case custom
-    case normal
-    case destructive
-    case bright
-    
-    public var color: UIColor {
-        switch self {
-        case .normal:
-            return SettingsPage.Style.defaultIntermediateBackground
-        case .destructive:
-            return SettingsPage.Style.defaultDarkBackground
-        case .bright:
-            return SettingsPage.Style.defaultLightText
-        case .custom:
-            return .black
-        }
-    }
-    
-    public var textColor: UIColor {
-        switch self {
-        case .normal:
-            return SettingButtonType.normal.color.readableTextColor
-        case .destructive:
-            return SettingsPage.Style.defaultDangerColor
-        case .bright:
-            return SettingButtonType.bright.color.readableTextColor
-        case .custom:
-            return .black
-        }
-    }
-}
-
 public protocol SettingButtonConfiguration {
     func configured(_ setting: Setting.Button) -> Setting.Button
 }
@@ -57,8 +24,8 @@ extension Setting {
         // MARK: - Properties
         // ========== PROPERTIES ==========
         public var text: String = "No Button Text"
-        public var backgroundColor: UIColor = SettingButtonType.normal.color
-        public var textColor: UIColor = SettingButtonType.normal.textColor
+        public var backgroundColor: UIColor = SettingsPage.Style.defaultIntermediateBackground
+        public var textColor: UIColor = SettingsPage.Style.defaultIntermediateBackground.readableTextColor
         public var font: UIFont = SettingsPage.Style.defaultBoldFont.withSize(16)
         // ====================
         
@@ -66,7 +33,7 @@ extension Setting {
         // ========== INITIALIZERS ==========
         required public init(_ id: String) {
             super.init(id)
-            height = 50
+            height = 45
         }
         // ====================
         
@@ -86,11 +53,6 @@ extension Setting {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        public func setButtonType(to type: SettingButtonType) {
-            backgroundColor = type.color
-            textColor = type.textColor
-            font = SettingsPage.Style.defaultMediumFont.withSize(16)
-        }
         // ====================
         
     }

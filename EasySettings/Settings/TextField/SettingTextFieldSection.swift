@@ -50,7 +50,7 @@ extension Setting {
         override internal func didUpdate(to object: Any) {
             super.didUpdate(to: object)
             delegate = (setting.delegateOverride ?? viewController) as? SettingTextFieldSectionDelegate
-            //actionDelegate = viewController as? SettingSwipeCellActionsSupport
+            //actionDelegate = viewController as? SettingswipeCellItemsSupport
         }
         // ====================
         
