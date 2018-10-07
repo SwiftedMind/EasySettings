@@ -47,7 +47,7 @@ extension Setting {
             swipeEnabled = false
             
             segmentedControl.snp.makeConstraints { (make) in
-                make.edges.equalToSuperview().inset(UIEdgeInsets(top: 2, left: 10, bottom: 2, right: 10))
+                make.edges.equalToSuperview()
             }
             
         }

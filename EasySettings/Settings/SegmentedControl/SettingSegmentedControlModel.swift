@@ -29,7 +29,7 @@ extension Setting {
         // ========== INITIALIZERS ==========
         required public init(_ id: String) {
             super.init(id)
-            height = 55
+            height = 50
         }
         // ====================
         
