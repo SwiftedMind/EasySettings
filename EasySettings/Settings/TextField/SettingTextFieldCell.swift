@@ -34,7 +34,6 @@ extension Setting {
             textField.textAlignment = .left
             textField.borderStyle = .none
             textField.returnKeyType = .done
-            //textField.attributedPlaceholder = NSAttributedString(string: "Placeholder", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: 0x888888)!])
             textField.delegate = self
             textField.clearButtonMode = .always
             textField.tintColor = .white
@@ -76,6 +75,7 @@ extension Setting {
         internal func configure(withListModel listModel: Setting.TextFieldModel) {
             self.listModel = listModel
             
+            textField.isEnabled = listModel.isEnabled
             textField.text = listModel.text
             textField.font = listModel.font
             textField.textColor = listModel.textColor

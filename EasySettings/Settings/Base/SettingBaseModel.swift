@@ -69,7 +69,7 @@ extension Setting {
         open func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? SettingExtension else { return false }
             
-            return self.id == object.id && self.height == object.height && self.inset == object.inset && self.headerTitle == object.headerTitle
+            return self.height == object.height && self.inset == object.inset && self.headerTitle == object.headerTitle
         }
         
     }

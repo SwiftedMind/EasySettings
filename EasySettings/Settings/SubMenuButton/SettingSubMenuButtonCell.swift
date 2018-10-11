@@ -56,7 +56,7 @@ extension Setting {
         }()
         
         private lazy var arrowImageView: UIImageView = {
-            let imageView = UIImageView(image: #imageLiteral(resourceName: "rightArrow").withRenderingMode(.alwaysTemplate))
+            let imageView = UIImageView(image: UIImage(named: "rightArrow", in: Bundle(for: SettingsPage.Controller.self), compatibleWith: nil)!.withRenderingMode(.alwaysTemplate))
             imageView.contentMode = .scaleAspectFit
             
             holderView.addSubview(imageView)

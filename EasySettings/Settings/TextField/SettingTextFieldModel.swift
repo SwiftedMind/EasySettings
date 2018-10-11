@@ -26,6 +26,7 @@ extension Setting {
         public var textColor: UIColor = SettingsPage.Style.defaultLightText
         public var placeholderTextColor: UIColor = SettingsPage.Style.defaultLightText.withAlphaComponent(0.4)
         public var keyboardType: UIKeyboardType = .default
+        public var isEnabled: Bool = true
         // ====================
         
         // MARK: - Initializers
@@ -44,7 +45,7 @@ extension Setting {
         
         override public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
             guard let object = object as? Setting.TextFieldModel, super.isEqual(toDiffableObject: object) else { return false }
-            return self.text == object.text && self.placeholder == object.placeholder && self.backgroundColor == object.backgroundColor && self.textColor == object.textColor && self.placeholderTextColor == object.placeholderTextColor
+            return self.text == object.text && self.placeholder == object.placeholder && self.backgroundColor == object.backgroundColor && self.textColor == object.textColor && self.placeholderTextColor == object.placeholderTextColor && self.isEnabled == object.isEnabled
         }
         // ====================
         
