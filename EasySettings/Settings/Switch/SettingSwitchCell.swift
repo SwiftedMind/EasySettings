@@ -64,6 +64,7 @@ extension Setting {
             checkbox.snp.makeConstraints { (make) in
                 make.trailing.equalToSuperview().offset(-15)
                 make.centerY.equalToSuperview()
+                make.width.equalTo(55)
             }
             
         }
