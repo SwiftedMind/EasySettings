@@ -174,7 +174,7 @@ extension SettingsPage {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        @objc public func closeButtonTapped() {
+        @objc open func closeButtonTapped() {
             settingsController.dismiss(animated: true, completion: nil)
         }
         
