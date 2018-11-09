@@ -174,12 +174,12 @@ extension SettingsPage {
         
         // MARK: - Functions
         // ========== FUNCTIONS ==========
-        @objc private func closeButtonTapped() {
+        @objc public func closeButtonTapped() {
             settingsController.dismiss(animated: true, completion: nil)
         }
         
         @objc private func objectHasChanged(notif: Notification) {
-            guard !self.isBeingDismissed else { return }
+            guard !self.isBeingDismissed && !pageController.isBeingDismissed else { return }
             adapter.performUpdates(animated: true, completion: nil)
             settingsHiddenViewClass.adapter.performUpdates(animated: true, completion: nil)
         }
